@@ -1,0 +1,11 @@
+<div class="col-md-6 col-md-offset-3">
+	<h1 class="text-center h1">登入</h1>
+		<%= form_tag "create_login_session" do %>
+			<%= label_tag "信箱" %>
+			<%= text_field_tag :email ,params[:email], :class =>"form-control"  %><br>
+		  <%= label_tag "密碼" %>
+			<%= password_field_tag :password, params[:password], :class =>"form-control"  %><br>
+			<%= submit_tag "登入", :class =>"btn btn-default"  %>
+		<% end %>
+	</div>
+<div class="block"></div>

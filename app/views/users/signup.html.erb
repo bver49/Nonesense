@@ -1,0 +1,39 @@
+<div class="col-md-6 col-md-offset-3">
+  <h1 class="text-center h1">註冊</h1>
+  <% if @user.errors.count > 0 %>
+  <p class="alert alert-warning formalert">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <% @user.errors.each do |attr,msg|  %>
+    <%= msg %><br>
+    <% end %>
+  </p>
+  <% end %>
+  <%= form_for @user, :html => {:class => "form"} do |f| %>
+  <div class="form-group">
+    <%= f.label :avatar, '大頭照' %>
+    <%= f.file_field :avatar,:class =>"form-control" %><br>
+  </div>
+  <input type='hidden' value='0' name='user[role]'/>
+  <div class="form-group">
+    <%= f.label :name, '用戶名' %>
+    <%= f.text_field :name, :class =>"form-control" %><br>
+  </div>
+  <div class="form-group">
+    <%= f.label :email, 'Email' %>
+    <%= f.text_field :email, :class =>"form-control" %><br>
+  </div>
+  <div class="form-group">
+    <%= f.label :password, '密碼' %>
+    <%= f.password_field :password, :class =>"form-control"  %><br>
+  </div>
+  <div class="form-group">
+    <%= f.label :password_confirmation, '確認密碼' %>
+    <%= f.password_field :password_confirmation, :class =>"form-control"  %><br>
+  </div>
+  <div class="form-group">
+    <%= f.label :about, '個人簡介' %>
+    <%= f.text_area :about, :class =>"form-control"  %><br>
+  </div>
+  <%= f.submit '註冊', :class =>"btn btn-default" %>
+  <% end %>
+</div>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ns</title>
+  <meta content='<%= current_user ? current_user.id : "" %>' name='user-id'/>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>">
+          <%= value %>
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+  <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2 col-sm-2">
+        <%= render 'layouts/menu' %>
+      </div>
+      <div class="col-md-10 col-sm-10" style="padding-bottom:200px;">
+        <%= render 'layouts/topmenu' %>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<% @user.each_slice(3) do |users| %>
+  <% users.each do |user| %>
+    <div class="col-md-4 col-sm-4" style="margin-top:25px;">
+      <div class="following">
+        <div class="following-posts">
+          <% user.mypost.limit(4).each do |post| %>
+            <div class="following-post">
+              <%= link_to image_tag(post.image.url(:post) , :class => 'following-postimg'),post %>
+            </div>
+          <% end %>
+        </div>
+        <%= link_to image_tag(user.avatar.url(:avatar) , :class => 'following-avatar'),user %>
+        <p class="text-center"><%= user.name %></p>
+        <p class="text-center"><%= user.about %></p>
+        <%= render'followbtn', user: user %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

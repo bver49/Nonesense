@@ -1,0 +1,68 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.user-meta{
+  padding:15px 10px;
+  margin-bottom:25px;
+  width:100%;
+}
+.user-avatar{
+  width:150px;
+  border-radius:50%;
+  display: block;
+  margin:0 auto;
+  margin-bottom:10px;
+}
+.user-about{
+  width:60%;
+  margin:0 auto;
+  display: block;
+  text-align: center;
+}
+
+.btnbar{
+  text-align: center;
+}
+
+#unfollow-button,#follow-button,#edit-button,#send-button{
+  display:inline-block;
+  width:100px;
+  border:1px solid black;
+  margin:0 auto;
+  margin-top:5px;
+  color:rgb(171,39,60);
+}
+
+#edit-button{
+  color:black;
+}
+
+#send-button{
+  color:blue;
+}
+
+.following{
+  border:1px solid gray;
+  padding:15px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.following-avatar{
+  display:block;
+  width:100%;
+}
+
+.following-posts{
+  width:100%;
+  font-size:0px;
+}
+
+.following-post{
+  display:inline-block;
+  width:25%;
+  padding:5px;
+}
+
+.following-postimg{
+  width:100%;
+}

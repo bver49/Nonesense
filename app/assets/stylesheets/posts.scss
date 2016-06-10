@@ -1,0 +1,29 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.postimg{
+  width:100%;
+  height:auto;
+  margin-top:5px;
+  margin-bottom:5px;
+}
+
+.authorname{
+  font-size:16px;
+  font-weight: bold;
+}
+
+.grid-sizer{
+  width:25%;
+}
+
+@media screen and (max-width:768px){
+  .grid-sizer{
+    width:100%;
+  }
+}
+
+.post-content{
+  margin:40px 0px;
+}

@@ -1,0 +1,11 @@
+<div class="panel panel-default" id="<%= dom_id comment %>">
+  <div class="panel-heading"><%= comment.user.name %> <%= time_ago_in_words(comment.created_at) %> 前發表</div>
+  <div class="panel-body">
+    <%= comment.body %>
+    <div class="btn-group pull-right">
+	    <% if comment.user == current_user %>
+			   <%= link_to '刪除', comment, method: :delete,remote: true, class: "btn btn-sm btn-default" %>
+		  <% end %>
+	  </div>
+  </div>
+</div>

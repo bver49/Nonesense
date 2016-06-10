@@ -1,0 +1,25 @@
+<div class="col-md-6 col-md-offset-3">
+  <%= image_tag @post.image.url ,:class =>'postimg' %>
+  <div class="likebtn">
+    <span ><span id="likeamt"><%= @post.likeamt %></span> Likes</span>
+    <% if current_user %>
+      <% if @userlike == nil %>
+        <%= link_to 'Like',likepost_path,remote: true,method: :post,:class=>'btn btn-default',:id =>'likebtn' %>
+      <% else %>
+        <%= link_to 'Unlike',unlikepost_path,remote: true,method: :post,:class=>'btn btn-default',:id =>'unlikebtn' %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="post-content"><%= @post.content %></div>
+  <div id="comments">
+    <%= render @comments %>
+  </div>
+  <% if current_user %>
+    <%= form_for [ @post , @post.comments.new ], remote: true do |f| %>
+      <%= f.text_field :body ,:class=>"form-control" %><br>
+      <%= f.submit '發表',:class => "btn btn-default" %>
+    <% end %>
+  <% else %>
+    <p class="text-center">請先<%= link_to '登入',login_path %></p>
+  <% end %>
+</div>

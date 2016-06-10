@@ -1,0 +1,21 @@
+<div class="user-meta">
+  <%= image_tag @user.avatar.url(:avatar),:class => 'user-avatar'%>
+  <p class="user-about"><%= @user.about %></p>
+  <%= render'followbtn', user: @user %>
+</div>
+<div class="grid">
+  <div class="grid-sizer"></div>
+  <% @user.mypost.each_slice(4) do |posts| %>
+    <% posts.each do |post| %>
+      <div class="col-lg-3 col-md-3  grid-item">
+        <%= link_to image_tag(post.image.url , :class =>'postimg'),post %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+  var grid = $('.grid').imagesLoaded(function () {
+    grid.masonry({itemSelector: '.grid-item', columnWidth: '.grid-sizer', percentPosition: true});
+  });
+</script>

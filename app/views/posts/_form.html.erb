@@ -1,0 +1,26 @@
+<% if @post.errors.count > 0 %>
+	<p class="alert alert-warning formalert">
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
+		<% @post.errors.each do |attr,msg|  %>
+			<%= msg %><br>
+		<% end %>
+	</p>
+<% end %>
+<%= form_for @post, :html => {:class => "form"} do |f| %>
+	<div class="form-group">
+		<%= f.label :title, '標題: ' %>
+		<%= f.text_field :title , :class =>"form-control" %><br><br>
+	</div>
+	<div class="form-group">
+		<%= f.label :image, '縮圖: ' %>
+		<%= f.file_field :image , :class =>"form-control" %><br><br>
+	</div>
+	<div class="form-group">
+		<%= f.label :content, '內文: ' %>
+		<%= f.text_area :content , :class =>"form-control" %><br><br>
+	</div>
+	<div class="form-group">
+		<%= f.submit '建立', :class =>"btn btn-default" %>
+		<%= link_to '返回', :back , :class =>"btn btn-default" %>
+	</div>
+<% end %>

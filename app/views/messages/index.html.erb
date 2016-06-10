@@ -1,0 +1,39 @@
+<div class="col-md-8 col-md-offset-2">
+  <h1 class="text-center">我的信箱</h1><br>
+  <table class="table">
+    <tr>
+      <th>信件標題</th>
+      <th>寄件人</th>
+      <th>操作</th>
+    </tr>
+    <% @msg.each do |msg| %>
+    <tr id="msg-<%= msg.id %>">
+      <td>
+        <% if msg.status==0 %>
+        <span class="label label-danger">NEW</span>
+        <% end %>
+        <%= link_to msg.title,msg %>
+      </td>
+      <td><%= link_to msg.sender.name , msg.sender  %></td>
+      <td><%= link_to '刪除', message_path(msg) ,:class => "btn btn-default", method: :delete, data: {confirm: "確定刪除?" },remote: true %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+<div class="col-md-8 col-md-offset-2">
+  <h1 class="text-center">通知</h1><br>
+  <table class="table">
+    <% @notice.each do |n| %>
+    <tr id="msg-<%= n.id %>">
+      <td>
+        <% if n.types == 1 || n.types == 3 %>
+          <%= link_to n.body , post_path(n.sender_id) %>
+        <% else %>
+          <%= link_to n.body , user_path(n.sender_id) %>
+        <% end %>
+      </td>
+      <td><%= link_to '刪除', message_path(n) ,:class => "btn btn-default", method: :delete,remote: true %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>

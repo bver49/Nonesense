@@ -1,0 +1,5 @@
+$('#likebtn').text('Unlike')
+             .attr('href', "/<%= @post.id %>/unlike_post")
+             .attr('id', 'unlikebtn');
+             var like = $('#likeamt').text();
+             $('#likeamt').text(parseInt(like)+1)

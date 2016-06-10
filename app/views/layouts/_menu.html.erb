@@ -1,0 +1,62 @@
+<div class="navbar" id="menu-mobile">
+  <div class="container-fluid" style="padding-top:0px;padding-bottom:0px;">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="biglink"><%= link_to '動態實況',root_path %></li>
+        <hr>
+        <li class="biglink"><%= link_to '找設計師',explore_path %></li>
+        <hr>
+        <% if current_user  %>
+          <li class="biglink"><%= link_to current_user.name , current_user%></li>
+          <% if current_user.role > 0  %>
+            <hr>
+            <li class="slink"><%= link_to '發文',new_post_path %></li>
+            <li class="slink"><%= link_to '上傳作品集','#' %></li>
+            <li class="slink"><%= link_to '我的貼文', current_user %></li>
+            <li class="slink"><%= link_to '我的作品集','#' %></li>
+            <li class="slink"><%= link_to '收藏的作品集','#' %></li>
+            <li class="slink"><%= link_to '追蹤的設計師',following_path %></li>
+          <% else %>
+            <li class="slink"><%= link_to '追蹤的設計師',following_path %></li>
+          <% end %>
+        <% else %>
+          <li class="slink"><%= link_to '註冊', signup_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<%= link_to image_tag('menu/logo.png', :id => "logo" ),root_path %>
+
+<div id="menu-desktop">
+  <ul class="sidemenu">
+    <li class="biglink"><%= link_to '動態實況',root_path %></li>
+    <hr>
+    <li class="biglink"><%= link_to '找設計師',explore_path %></li>
+    <hr>
+    <% if current_user  %>
+      <li class="biglink"><%= link_to current_user.name , current_user%></li>
+      <% if current_user.role > 0  %>
+        <hr>
+        <li class="slink"><%= link_to '發文',new_post_path %></li>
+        <li class="slink"><%= link_to '上傳作品集','#' %></li>
+        <li class="slink"><%= link_to '我的貼文', current_user %></li>
+        <li class="slink"><%= link_to '我的作品集','#' %></li>
+        <li class="slink"><%= link_to '收藏的作品集','#' %></li>
+        <li class="slink"><%= link_to '追蹤的設計師',following_path %></li>
+      <% else %>
+        <li class="slink"><%= link_to '追蹤的設計師',following_path %></li>
+      <% end %>
+    <% else %>
+      <li class="slink"><%= link_to '註冊', signup_path %></li>
+    <% end %>
+  </ul>
+</div>

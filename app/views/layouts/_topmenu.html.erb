@@ -1,0 +1,19 @@
+<div class="topmenu">
+  <% if current_user %>
+    <%= link_to image_tag('menu/logout.png'),logout_path,method: :delete  %>
+    <% if current_user.role > 0 %>
+      <%= link_to image_tag('menu/mailbox.png', :id => 'mailbox'),messages_path %>
+    <% end %>
+  <% else %>
+    <%= link_to image_tag('menu/login.png'),login_path %>
+  <% end %>
+</div>
+<script>
+  $('#mailbox')
+  .mouseover(function(){
+    this.src='/assets/menu/mailboxhover.png';
+  })
+  .mouseout(function() {
+    this.src='/assets/menu/mailbox.png';
+  });
+</script>

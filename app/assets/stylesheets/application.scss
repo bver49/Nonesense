@@ -1,0 +1,143 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+ /* Reset */
+ html, body, div, span, applet, object, iframe,
+ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+ a ,abbr, acronym, address, big, cite, code,
+ del, dfn, em, img, ins, kbd, q, s, samp,
+ small, strike, strong, sub, sup, tt, var,
+ b, u, i, center,
+ dl, dt, dd, ol, ul, li,
+ fieldset, form, label, legend,
+ table, caption, tbody, tfoot, thead, tr, th, td,
+ article, aside, canvas, details, embed,
+ figure, figcaption, footer, header, hgroup,
+ menu, nav, output, ruby, section, summary,
+ time, mark, audio, video {
+ margin: 0;
+ padding: 0;
+ border: 0;
+ font-size: 100%;
+ font: inherit;
+ vertical-align: baseline;
+ text-decoration:none;
+ }
+ /* HTML5 display-role reset for older browsers */
+ article, aside, details, figcaption, figure,
+ footer, header, hgroup, menu, nav, section {
+ display: block;
+ }
+ body {
+ line-height: 1;
+ }
+ ol, ul {
+ list-style: none;
+ }
+ blockquote, q {
+ quotes: none;
+ }
+ blockquote:before, blockquote:after,
+ q:before, q:after {
+ content: '';
+ content: none;
+ }
+ table {
+ border-collapse: collapse;
+ border-spacing: 0;
+ }
+
+hr{
+  margin-top:5px;
+  margin-bottom:5px;
+}
+a,a:hover{
+  color:black;
+  text-decoration:none;
+}
+/* Reset end */
+
+/* Top */
+.topmenu{
+  width:100%;
+  margin-top:10px;
+  margin-bottom:50px;
+}
+
+.topmenu img{
+  float:right;
+  width:30px;
+  margin-right:15px;
+}
+
+/* Side */
+#logo{
+  width:100%;
+}
+
+.sidemenu{
+  margin-top:20px;
+}
+
+.sidemenu li{
+  margin:10px auto;
+}
+
+.biglink{
+  font-size:18px;
+}
+
+.slink{
+  padding-top:4px;
+  padding-bottom:8px;
+  font-size: 14px;
+}
+
+.slink a,.biglink a,.biglink a:hover,.slink a:hover{
+  color:black;
+  text-decoration: none;
+}
+
+#menu-mobile{
+  display:none;
+}
+
+.icon-bar{
+  background-color:black;
+}
+.navbar-toggle{
+  float:none;
+}
+
+@media screen and (max-width:768px){
+  .topmenu{
+    text-align: center;
+  }
+  .topmenu img{
+    float:none;
+  }
+
+  #menu-mobile{
+    display:block;
+  }
+
+  #menu-desktop{
+    display:none;
+  }
+}
