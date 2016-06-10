@@ -2,6 +2,7 @@
   <% if current_user %>
     <% if user == current_user %>
       <%= link_to '編輯', edit_user_path(user), class: 'btn', id: 'edit-button' %>
+      <%= link_to '刪除帳號' , user_path(user) , :class => 'btn',id: 'del-button', method: :delete, data: { confirm: "確定刪除嗎?" } %>
     <% else %>
       <% if current_user_is_following(current_user.id, user.id) %>
         <% if current_user.role > 0 %>

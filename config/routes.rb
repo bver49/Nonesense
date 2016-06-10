@@ -19,8 +19,12 @@ Rails.application.routes.draw do
     post ':id/like_post', to: 'likes#likepost', :as => 'likepost'
     post ':id/unlike_post', to: 'likes#unlikepost',:as => 'unlikepost'
 
-    get 'following' => 'users#following',:as => 'following'
-    get 'explore' => 'users#explore',:as => 'explore'
+    get 'following' => 'users#following'
+    get 'explore' => 'users#explore'
 
     get 'auth' => 'users#auth'
+    get 'adminuser' => 'users#adminuser'
+    get 'adminpost' => 'users#adminpost'
+    post ':id/sendauthmail' => 'users#sendauthmail',:as => 'sendauthmail'
+    delete "admindestroy/:id" => "users#admindestroy" ,:as => 'admindestroy'
 end

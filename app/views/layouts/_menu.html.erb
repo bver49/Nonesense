@@ -23,6 +23,10 @@
             <li class="slink"><%= link_to '我的作品集','#' %></li>
             <li class="slink"><%= link_to '收藏的作品集','#' %></li>
             <li class="slink"><%= link_to '追蹤的設計師',following_path %></li>
+            <% if current_user.role == 3 %>
+              <li class="slink"><%= link_to '管理用戶',adminuser_path %></li>
+              <li class="slink"><%= link_to '管理文章',adminpost_path %></li>
+            <% end %>
           <% else %>
             <li class="slink"><%= link_to '追蹤的設計師',following_path %></li>
           <% end %>
@@ -52,6 +56,10 @@
         <li class="slink"><%= link_to '我的作品集','#' %></li>
         <li class="slink"><%= link_to '收藏的作品集','#' %></li>
         <li class="slink"><%= link_to '追蹤的設計師',following_path %></li>
+        <% if current_user.role == 3 %>
+          <li class="slink"><%= link_to '管理用戶',adminuser_path %></li>
+          <li class="slink"><%= link_to '管理文章',adminpost_path %></li>
+        <% end %>
       <% else %>
         <li class="slink"><%= link_to '追蹤的設計師',following_path %></li>
       <% end %>

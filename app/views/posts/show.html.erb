@@ -8,6 +8,10 @@
       <% else %>
         <%= link_to 'Unlike',unlikepost_path,remote: true,method: :post,:class=>'btn btn-default',:id =>'unlikebtn' %>
       <% end %>
+      <% if current_user == @post.user %>
+        <%= link_to '編輯', edit_post_path(@post) ,:class => "btn btn-default" %>
+        <%= link_to '刪除', post_path(@post) ,:class => "btn btn-default", method: :delete, data: {confirm: "確定刪除?" } %>
+      <% end %>
     <% end %>
   </div>
   <div class="post-content"><%= @post.content %></div>

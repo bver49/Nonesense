@@ -1,0 +1,15 @@
+<% @user.each_slice(3) do |users| %>
+  <% users.each do |user| %>
+    <div class="col-md-4 col-sm-4" id="user-<%= user.id  %>" style="margin-top:25px;">
+      <div class="following">
+        <%= link_to image_tag(user.avatar.url(:avatar) , :class => 'following-avatar'),user %>
+        <p class="text-center"><%= user.name %></p>
+        <p class="text-center"><%= user.about %></p>
+        <div class="btnbar">
+          <%= link_to '刪除帳號' , admindestroy_path(user.id) , :class => 'btn btn-default', method: :delete, data: { confirm: "確定刪除嗎?" },remote: :true %>
+          <%= link_to '發驗證信' , sendauthmail_path(user.id) , :class => 'btn btn-default', method: :post, data: { confirm: "確定寄出嗎?" },remote: :true %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,19 @@
+<div class="col-md-8 col-md-offset-2">
+  <h1 class="text-center">文章管理</h1><br>
+  <table class="table">
+    <tr>
+      <th>文章標題</th>
+      <th>發表人</th>
+      <th>操作</th>
+    </tr>
+    <% @post.each do |post| %>
+    <tr id="post-<%= post.id %>">
+      <td>
+        <%= link_to post.title,post %>
+      </td>
+      <td><%= link_to post.user.name , post.user  %></td>
+      <td><%= link_to '刪除', post_path(post) ,:class => "btn btn-default", method: :delete, data: {confirm: "確定刪除?" },remote: true %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>

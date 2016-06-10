@@ -34,7 +34,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to root_path }
+      format.html { redirect_to user_path(current_user) }
       format.js
     end
   end
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to root_path
+      redirect_to @post
     else
       render 'edit'
     end

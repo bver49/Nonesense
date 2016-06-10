@@ -12,7 +12,6 @@ class User < ActiveRecord::Base
 
     validates_length_of :password, :minimum => 8 , :message => "密碼長度須大於8", on: :create
     validates_uniqueness_of :email, :message => "信箱已被使用", on: :create
-    validates_uniqueness_of :name
     validates_format_of :email, :with => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i, :message => "請輸入信箱"
     validates_presence_of :name , :message => "請填寫名稱"
     validates_presence_of :about,:message => "請填寫自我介紹"

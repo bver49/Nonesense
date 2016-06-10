@@ -52,6 +52,14 @@ class UsersController < ApplicationController
       end
     end
 
+    def destroy
+      @user = User.find(params[:id])
+      @user.destroy
+      session[:user_id]=nil
+      flash[:success] = "刪除帳號成功"
+      redirect_to root_path
+    end
+
     def following
       @user = User.where(id:current_user.following).order("created_at desc")
     end
@@ -81,6 +89,39 @@ class UsersController < ApplicationController
         end
       end
     end
+
+    def adminuser
+      if current_user.role != 3
+        redirect_to root_path
+      end
+      @user=User.where('id != ?',current_user.id)
+    end
+
+    def adminpost
+      if current_user.role != 3
+        redirect_to root_path
+      end
+      @post=Post.all
+    end
+
+    def admindestroy
+      @user = User.find(params[:id])
+      @user.destroy
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js
+      end
+    end
+
+    def sendauthmail
+      @user = User.find(params[:id])
+      UserMailer.authmail(@user).deliver
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js
+      end
+    end
+
   private
     def user_params
       params.require(:user).permit!
