@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     get 'following' => 'users#following'
     get 'explore' => 'users#explore'
 
+    get 'notice' => 'messages#notice'
+
     get 'auth' => 'users#auth'
     get 'adminuser' => 'users#adminuser'
     get 'adminpost' => 'users#adminpost'

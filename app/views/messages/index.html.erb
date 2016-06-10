@@ -20,20 +20,3 @@
     <% end %>
   </table>
 </div>
-<div class="col-md-8 col-md-offset-2">
-  <h1 class="text-center">通知</h1><br>
-  <table class="table">
-    <% @notice.each do |n| %>
-    <tr id="msg-<%= n.id %>">
-      <td>
-        <% if n.types == 1 || n.types == 3 %>
-          <%= link_to n.body , post_path(n.sender_id) %>
-        <% else %>
-          <%= link_to n.body , user_path(n.sender_id) %>
-        <% end %>
-      </td>
-      <td><%= link_to '刪除', message_path(n) ,:class => "btn btn-default", method: :delete,remote: true %></td>
-    </tr>
-    <% end %>
-  </table>
-</div>

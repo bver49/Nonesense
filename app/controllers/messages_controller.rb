@@ -27,6 +27,9 @@ class MessagesController < ApplicationController
 
   def index
     @msg = Message.where(receiver_id: current_user.id,types:'0').order("created_at desc")
+  end
+
+  def notice
     @notice = Message.where("receiver_id = ? AND types != ?",current_user.id,'0').order("created_at desc")
   end
 

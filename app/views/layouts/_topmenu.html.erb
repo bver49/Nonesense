@@ -1,6 +1,7 @@
 <div class="topmenu">
   <% if current_user %>
     <%= link_to image_tag('menu/logout.png'),logout_path,method: :delete  %>
+    <%= link_to image_tag('menu/option.png'),notice_path %>
     <% if current_user.role > 0 %>
       <%= link_to image_tag('menu/mailbox.png', :id => 'mailbox'),messages_path %>
     <% end %>

@@ -7,7 +7,26 @@
         <p class="text-center"><%= user.about %></p>
         <div class="btnbar">
           <%= link_to '刪除帳號' , admindestroy_path(user.id) , :class => 'btn btn-default', method: :delete, data: { confirm: "確定刪除嗎?" },remote: :true %>
-          <%= link_to '發驗證信' , sendauthmail_path(user.id) , :class => 'btn btn-default', method: :post, data: { confirm: "確定寄出嗎?" },remote: :true %>
+          <% if user.role == 0  %>
+            <%= link_to '發驗證信' , sendauthmail_path(user.id) , :class => 'btn btn-default', method: :post, data: { confirm: "確定寄出嗎?" },remote: :true %>
+            <div class="btn btn-default" style="margin-top:5px;" data-toggle="modal" data-target="#myModal-<%= user.id %>">傳送訊息</div>
+          <% end %>
+          <div class="modal fade" id="myModal-<%= user.id  %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="text-align: left;">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                  </button>
+                  <h4 class="modal-title" id="myModalLabel">寄信</h4>
+                </div>
+                <div class="modal-body">
+                  <%= render'./messages/form', receiver: user %>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
