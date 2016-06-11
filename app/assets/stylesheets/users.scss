@@ -66,3 +66,21 @@
 .following-postimg{
   width:100%;
 }
+
+/* 裁圖 */
+
+#previewbox{
+	width:100px;
+	height:100px;
+	overflow:hidden;
+	margin:30px auto;
+}
+
+.jcrop-holder{
+	margin:0px auto;
+}
+
+#crop-btn{
+	margin:0px auto;
+	display:block;
+}

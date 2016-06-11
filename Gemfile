@@ -23,3 +23,4 @@ end
 gem 'carrierwave'
 gem 'bootstrap-sass'
 gem 'rmagick'
+gem 'jcrop-rails-v2'

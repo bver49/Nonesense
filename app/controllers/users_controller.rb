@@ -7,8 +7,8 @@ class UsersController < ApplicationController
     	@user=User.new(user_params)
 
     	if @user.save
-        flash[:success] = "註冊成功"
-        redirect_to root_path
+          render :crop
+          flash[:success] = "註冊成功"
       else
         flash[:danger] = "註冊失敗"
         render 'signup'
@@ -44,8 +44,12 @@ class UsersController < ApplicationController
     def update
       @user = User.find(params[:id])
       if @user.update(user_params)
-        flash[:success] = "更新成功"
-        redirect_to user_path(@user)
+        if params[:user][:avatar].present?
+          render :crop
+        else
+          flash[:success] = "更新成功"
+          redirect_to user_path(@user)
+        end
       else
         flash[:danger] = "更新失敗"
         render 'edit'

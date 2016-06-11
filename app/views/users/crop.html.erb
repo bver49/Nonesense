@@ -1,0 +1,17 @@
+		<div class="col-md-4 col-md-offset-3">
+			<h1 class="text-center h1">裁切圖片</h1>
+			<div id="previewbox">
+				<%= image_tag @user.avatar.url(:large), :id=> "preview" %>
+			</div>
+		</div>
+		<div class="col-md-6 col-md-offset-2">
+			<%= image_tag @user.avatar_url(:large), :id => 'cropbox' %>
+			<%= form_for @user do |f| %>
+				<div class="action">
+					<% %w[x y w h].each do |attr| %>
+						<%= f.hidden_field "crop_#{attr}" %><br>
+					<% end %>
+					<%= f.submit '裁切' , :class => 'btn btn-default', :id =>'crop-btn' %>
+				</div>
+			<% end %>
+		</div>
