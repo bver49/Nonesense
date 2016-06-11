@@ -1,12 +1,27 @@
 <div class="topmenu">
   <% if current_user %>
-    <%= link_to image_tag('menu/logout.png'),logout_path,method: :delete  %>
-    <%= link_to image_tag('menu/option.png'),notice_path %>
+    <li><%= link_to image_tag('menu/logout.png'),logout_path,method: :delete  %></li>
     <% if current_user.role > 0 %>
-      <%= link_to image_tag('menu/mailbox.png', :id => 'mailbox'),messages_path %>
+      <li><%= link_to image_tag('menu/mailbox.png', :id => 'mailbox'),messages_path %></li>
     <% end %>
+    <li id="notification">
+      <%= link_to image_tag('menu/option.png'),'#',:id =>'notificationLink' %>
+      <div id="notificationContainer">
+        <div id="notificationTitle">通知</div>
+        <div id="notificationsBody">
+          <% mynotice.each do |n|  %>
+            <% if n.types == 1 || n.types == 3 %>
+              <%= link_to n.body , post_path(n.sender_id) ,:class => 'notifications'%>
+            <% else %>
+              <%= link_to n.body , user_path(n.sender_id),:class => 'notifications' %>
+            <% end %>
+          <% end %>
+        </div>
+        <div id="notificationFooter"><%= link_to '全部通知',notice_path %></div>
+      </div>
+    </li>
   <% else %>
-    <%= link_to image_tag('menu/login.png'),login_path %>
+    <li><%= link_to image_tag('menu/login.png'),login_path %></li>
   <% end %>
 </div>
 <script>
@@ -16,5 +31,18 @@
   })
   .mouseout(function() {
     this.src='/assets/menu/mailbox.png';
+  });
+
+
+  $(document).ready(function() {
+    $("#notificationLink").click(function() {
+      event.preventDefault();
+      if ($('#notificationContainer').css('display') == 'none'){
+        $("#notificationContainer").fadeIn();
+      }
+      else{
+        $("#notificationContainer").fadeOut();
+      }
+    });
   });
 </script>
