@@ -5,9 +5,10 @@ class CommentsController < ApplicationController
   	@comment.user_id = current_user.id
   	@comment.save!
 
-    @notice=Message.new
-    @notice.notify_comment(current_user.name,@post)
-
+    if @post.user_id != current_user.id
+      @notice=Message.new
+      @notice.notify_comment(current_user.name,@post)
+    end
     respond_to do |format|
   		format.html { redirect_to @post}
   		format.js

@@ -14,7 +14,10 @@
       <% end %>
     <% end %>
   </div>
-  <div class="post-content"><%= @post.content %></div>
+  <div class="post-content">
+    <%= @post.content %>
+  </div>
+  <p><%= @post.tag_list %></p>
   <div id="comments">
     <%= render @comments %>
   </div>

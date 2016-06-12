@@ -6,8 +6,10 @@ class LikesController < ApplicationController
     @like.post_id = @post.id
     @like.save!
 
-    @notice=Message.new
-    @notice.notify_post(current_user.name,@post)
+    if @post.user_id != current_user.id
+      @notice=Message.new
+      @notice.notify_post(current_user.name,@post)
+    end
 
     respond_to do |format|
       format.html { redirect_to @post}
