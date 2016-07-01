@@ -2,7 +2,10 @@
   <% if current_user %>
     <li><%= link_to image_tag('menu/logout.png'),logout_path,method: :delete  %></li>
     <% if current_user.role > 0 %>
-      <li><%= link_to image_tag('menu/mailbox.png', :id => 'mailbox'),messages_path %></li>
+      <li id="mailboxicon">
+        <%= link_to image_tag('menu/mailbox.png', :id => 'mailbox'),messages_path %>
+        <%= link_to image_tag('menu/mailboxhover.png', :id => 'mailboxhover'),messages_path %>
+      </li>
     <% end %>
     <li id="notification">
       <%= link_to image_tag('menu/option.png'),'#',:id =>'notificationLink' %>
@@ -25,12 +28,14 @@
   <% end %>
 </div>
 <script>
-  $('#mailbox')
+  $('#mailboxicon')
   .mouseover(function(){
-    this.src='/assets/menu/mailboxhover.png';
+    $('#mailbox').hide();
+    $('#mailboxhover').show();
   })
   .mouseout(function() {
-    this.src='/assets/menu/mailbox.png';
+    $('#mailbox').show();
+    $('#mailboxhover').hide();
   });
 
 
