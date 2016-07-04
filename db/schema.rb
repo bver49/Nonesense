@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160612073635) do
+ActiveRecord::Schema.define(version: 20160704163247) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -23,12 +23,6 @@ ActiveRecord::Schema.define(version: 20160612073635) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
-
-  create_table "images", force: :cascade do |t|
-    t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
@@ -51,12 +45,23 @@ ActiveRecord::Schema.define(version: 20160612073635) do
     t.datetime "updated_at",              null: false
   end
 
+  create_table "portfolios", force: :cascade do |t|
+    t.string   "title"
+    t.text     "about"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "portfolios", ["user_id"], name: "index_portfolios_on_user_id"
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "image"
     t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "portfolio_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "user_id"
   end
 

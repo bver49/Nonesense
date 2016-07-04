@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'portfolios/index'
+
+  get 'portfolios/show'
+
+  get 'portfolios/new'
+
+  get 'portfolios/create'
+
+  get 'portfolios/edit'
+
+  get 'portfolios/update'
+
+  get 'portfolios/destroy'
+
     root "posts#index"
 
     resources :users,except: [:new]
@@ -8,6 +22,13 @@ Rails.application.routes.draw do
       resources :comments, only: [:create]
     end
     resources :comments, only: [:destroy]
+    resources :portfolios do
+      get 'choose_addpost' => 'portfolios#choose_addpost'
+      get 'choose_removepost' => 'portfolios#choose_removepost'
+    end
+    put 'addpost/:id' => 'portfolios#addpost' ,:as => 'addpost'
+    delete 'removepost/:id' => 'portfolios#removepost' ,:as => 'removepost'
+
 
     get 'signup' => 'users#signup',:as => 'signup'
     get "login" => "users#login", :as => "login"

@@ -1,0 +1,14 @@
+<%= form_for Portfolio.new, :html => {:class => "form",:id => "portfolio-form"}  do |f| %>
+	<div class="form-group">
+		<%= f.label :title, '標題: ' %><br><br>
+		<%= f.text_field :title , :class =>"form-control" %>
+	</div>
+	<div class="form-group">
+		<%= f.label :about, '介紹: ' %><br><br>
+		<%= f.text_area :about , :class =>"form-control" %>
+	</div>
+	<div class="form-group text-center">
+		<%= f.submit '傳送', :class =>"btn btn-default", data: {confirm: "確定創立?" } %>
+		<div class="btn btn-default" id="portfolio-cancelbtn">取消</div>
+	</div>
+<% end %>

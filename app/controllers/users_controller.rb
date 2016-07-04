@@ -95,14 +95,14 @@ class UsersController < ApplicationController
     end
 
     def adminuser
-      if current_user.role != 3
+      if current_user.role != 2
         redirect_to root_path
       end
       @user=User.where('id != ?',current_user.id)
     end
 
     def adminpost
-      if current_user.role != 3
+      if current_user.role != 2
         redirect_to root_path
       end
       @post=Post.all

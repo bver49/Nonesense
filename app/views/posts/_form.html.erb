@@ -23,8 +23,13 @@
 		<%= f.label :tag_list, '標籤: ' %>
 		<%= f.text_field :tag_list, :class =>"form-control" %><br><br>
 	</div>
+	<% if params[:pid] %>
+		<input type='hidden' value='<%= params[:pid] %>' name='post[portfolio_id]' />
+	<% else %>
+		<input type='hidden' value='0' name='portfolio_id' />
+	<% end %>
 	<div class="form-group">
-		<%= f.submit '建立', :class =>"btn btn-default" %>
+		<%= f.submit '創立', :class =>"btn btn-default" %>
 		<%= link_to '返回', :back , :class =>"btn btn-default" %>
 	</div>
 <% end %>
