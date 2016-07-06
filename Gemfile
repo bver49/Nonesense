@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.5.1'
-gem 'sqlite3'
+gem 'sqlite3', group: :development
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -24,3 +24,8 @@ gem 'carrierwave'
 gem 'bootstrap-sass'
 gem 'rmagick'
 gem 'jcrop-rails-v2'
+
+gem 'therubyracer', platforms: :ruby
+group :production do
+  gem "mysql2"
+end
