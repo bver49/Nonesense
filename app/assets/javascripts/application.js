@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.Jcrop
 //= require masonry
+//= require semantic
 //= require imageloaded
 //= require bootstrap-sprockets
 //= require turbolinks

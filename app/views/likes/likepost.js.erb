@@ -1,5 +1,7 @@
-$('#likebtn').text('Unlike')
-             .attr('href', "/<%= @post.id %>/unlike_post")
+$('#likebtn-word').text('Unlike');
+$('#likebtn').attr('href', "/<%= @post.id %>/unlike_post")
              .attr('id', 'unlikebtn');
-             var like = $('#likeamt').text();
-             $('#likeamt').text(parseInt(like)+1)
+var like = $('#likeamt').text();
+$('#likeamt').addClass('red')
+             .text(parseInt(like)+1);
+$('a.ui.button').addClass('red');
