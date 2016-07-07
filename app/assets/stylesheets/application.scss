@@ -83,11 +83,11 @@ a,a:hover{
 .topmenu li{
   float:right;
   list-style:none;
+  margin-right:15px;
 }
 
 .topmenu img{
   width:30px;
-  margin-right:15px;
 }
 
 #mailboxhover{
@@ -136,7 +136,7 @@ a,a:hover{
 
 /* notify */
 #notification {
-  position: relative
+  position: relative;
 }
 
 #notificationContainer {
