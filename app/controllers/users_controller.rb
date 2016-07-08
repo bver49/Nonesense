@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
     def signup
-     @user = User.new
+     if current_user
+      redirect_to posts_path
+     else
+       @user = User.new
+     end
     end
 
     def create

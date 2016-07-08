@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-    root "posts#index"
+    root "users#signup"
 
     resources :users,except: [:new]
     resources :messages, except: [:new,:update,:edit]
