@@ -15,7 +15,8 @@
 }
 .user-about{
   width:60%;
-  margin:0 auto;
+  margin:20px auto;
+  line-height:30px;
   display: block;
   text-align: center;
 }
@@ -49,7 +50,9 @@
 
 .following-avatar{
   display:block;
-  width:100%;
+  width:80%;
+  margin:10px auto;
+  border-radius:50%;
 }
 
 .following-posts{

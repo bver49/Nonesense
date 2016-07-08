@@ -15,6 +15,10 @@ class UsersController < ApplicationController
       end
   	end
 
+    def login
+
+    end
+
     def logout
       session[:user_id]=nil
       flash[:success] = "登出成功"
@@ -117,9 +121,10 @@ class UsersController < ApplicationController
       end
     end
 
-    def sendauthmail
+    def upgradeuser
       @user = User.find(params[:id])
-      UserMailer.authmail(@user).deliver
+      @user.role = 1
+      @user.save
       respond_to do |format|
         format.html { redirect_to root_path }
         format.js

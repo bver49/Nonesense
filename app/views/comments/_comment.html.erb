@@ -4,7 +4,7 @@
     <%= comment.body %>
     <div class="btn-group pull-right">
 	    <% if comment.user == current_user %>
-			   <%= link_to '刪除', comment, method: :delete,remote: true, class: "btn btn-sm btn-default" %>
+			   <%= link_to '刪除', comment, method: :delete,remote: true, class: "ui button" %>
 		  <% end %>
 	  </div>
   </div>

@@ -1,22 +1,26 @@
 <div class="col-md-8 col-md-offset-2">
-  <h1 class="text-center">我的信箱</h1><br>
-  <table class="table">
-    <tr>
-      <th>信件標題</th>
-      <th>寄件人</th>
-      <th>操作</th>
-    </tr>
-    <% @msg.each do |msg| %>
-    <tr id="msg-<%= msg.id %>">
-      <td>
-        <% if msg.status==0 %>
-        <span class="label label-danger">NEW</span>
-        <% end %>
-        <%= link_to msg.title,msg %>
-      </td>
-      <td><%= link_to msg.sender.name , msg.sender  %></td>
-      <td><%= link_to '刪除', message_path(msg) ,:class => "btn btn-default", method: :delete, data: {confirm: "確定刪除?" },remote: true %></td>
-    </tr>
-    <% end %>
+  <h1 class="h2 text-center">我的信箱</h1><br>
+  <table class="ui celled table">
+    <thead>
+      <tr>
+        <th>信件標題</th>
+        <th>寄件人</th>
+        <th>操作</th>
+      </tr>
+    <thead>
+    <tbody>
+      <% @msg.each do |msg| %>
+      <tr id="msg-<%= msg.id %>">
+        <td>
+          <% if msg.status==0 %>
+          <span class="label label-danger">NEW</span>
+          <% end %>
+          <%= link_to msg.title,msg %>
+        </td>
+        <td><%= link_to msg.sender.name , msg.sender  %></td>
+        <td><%= link_to '刪除', message_path(msg) ,:class => "btn btn-default", method: :delete, data: {confirm: "確定刪除?" },remote: true %></td>
+      </tr>
+      <% end %>
+    </tbody>
   </table>
 </div>

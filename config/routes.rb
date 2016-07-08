@@ -1,19 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'portfolios/index'
-
-  get 'portfolios/show'
-
-  get 'portfolios/new'
-
-  get 'portfolios/create'
-
-  get 'portfolios/edit'
-
-  get 'portfolios/update'
-
-  get 'portfolios/destroy'
-
     root "posts#index"
 
     resources :users,except: [:new]
@@ -45,9 +31,8 @@ Rails.application.routes.draw do
 
     get 'notice' => 'messages#notice'
 
-    get 'auth' => 'users#auth'
     get 'adminuser' => 'users#adminuser'
     get 'adminpost' => 'users#adminpost'
-    post ':id/sendauthmail' => 'users#sendauthmail',:as => 'sendauthmail'
+    post ':id/upgradeuser' => 'users#upgradeuser',:as => 'upgradeuser'
     delete "admindestroy/:id" => "users#admindestroy" ,:as => 'admindestroy'
 end

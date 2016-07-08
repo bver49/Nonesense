@@ -18,8 +18,13 @@
         </span>
       <% end %>
     <% else %>
-      <div class="ui button">
-        <i class="heart icon"></i>Like
+      <div class="ui labeled button" tabindex="0">
+        <div class="ui button">
+          <i class="heart icon"></i>Like
+        </div>
+        <span class="ui basic label">
+          <%= @post.likeamt %>
+        </span>
       </div>
     <% end %>
   </div>
@@ -40,11 +45,11 @@
     <div class="ui button" id="comment-btn">留言</div>
     <%= form_for [ @post , @post.comments.new ], remote: true do |f| %>
       <%= f.text_field :body ,:class=>"form-control" %><br>
-      <%= f.submit '發表',:class => "btn btn-default" %>
-      <div class="btn btn-default" id="comment-cancelbtn">取消</div>
+      <%= f.submit '發表',:class => "ui button" %>
+      <div class="ui button" id="comment-cancelbtn">取消</div>
     <% end %>
   <% else %>
-    <p class="text-center">請先<%= link_to '登入',login_path %></p>
+    <p class="text-center"><%= link_to '請先登入',login_path,:class => 'ui button' %></p>
   <% end %>
 </div>
 
