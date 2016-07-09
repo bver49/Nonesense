@@ -1,10 +1,9 @@
-$('#myModal-<%= @msg.receiver_id %>').css('display','none').removeClass( "in" );
+$('#message-<%= @msg.receiver_id %> .close').click();
 if('<%= @msg.title %>' =='' ||'<%= @msg.body %>'=='' ){
-  $('body').removeClass( "modal-open" ).prepend('<div class="alert alert-danger">傳送失敗<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+  $('body').prepend('<div class="alert alert-danger">傳送失敗<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 }
 else{
-  $('body').removeClass( "modal-open" ).prepend('<div class="alert alert-success">傳送成功<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+  $('body').prepend('<div class="alert alert-success">傳送成功<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 }
-$('.modal-backdrop').remove();
-$('#myModal-<%= @msg.receiver_id %> #message_body').val("");
-$('#myModal-<%= @msg.receiver_id %> #message_title').val("");
+$('#message-<%= @msg.receiver_id %> #message_body').val("");
+$('#message-<%= @msg.receiver_id %> #message_title').val("");

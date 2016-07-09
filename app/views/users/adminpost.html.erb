@@ -10,7 +10,7 @@
     </thead>
     <tbody>
       <% @post.each do |post| %>
-      <tr id="post-<%= post.id %>">
+      <tr id="postrow-<%= post.id %>">
         <td>
           <%= link_to post.title,post %>
         </td>

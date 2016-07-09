@@ -2,7 +2,7 @@
   <div class="grid-sizer"></div>
   <% @post.each_slice(4) do |posts| %>
       <% posts.each do |post| %>
-        <div class="col-lg-3 col-md-3 col-sm-3 grid-item">
+        <div class="col-lg-3 col-md-3 col-sm-3 grid-item" id="post-<%= post.id %>">
           <div class="post-show" data-toggle="modal" data-target="#postmodal" data-id="<%= post.id %>">
             <%=  image_tag post.image.url , :class =>'postimg' %>
           </div>
@@ -43,6 +43,7 @@
         type: 'GET',
         success: function(response) {
           $('#postmodal .modal-body').prepend(response);
+          $('#postmodal').data('bs.modal').handleUpdate();
         }
       });
     });

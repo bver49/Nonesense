@@ -10,7 +10,7 @@
   <div class="grid-sizer"></div>
   <% @user.mypost.each_slice(4) do |posts| %>
     <% posts.each do |post| %>
-      <div class="col-lg-3 col-md-3  grid-item">
+      <div class="col-lg-3 col-md-3  grid-item" id="post-<%= post.id %>">
         <div class="post-show" data-toggle="modal" data-target="#postmodal" data-id="<%= post.id %>">
           <%=  image_tag post.image.url , :class =>'postimg' %>
         </div>
@@ -51,7 +51,6 @@
       });
     });
     $('#postmodal').on('hidden.bs.modal', function () {
-      console.log('hide');
       $('#postmodal .modal-body').empty();
     });
   });

@@ -6,9 +6,9 @@
     <% else %>
       <% if current_user_is_following(current_user.id, user.id) %>
         <% if current_user.role > 0 %>
-          <div class="btn btn-default" id="send-button" data-toggle="modal" data-target="#myModal-<%= user.id %>">傳送訊息</div>
+          <div class="btn btn-default" id="send-button" data-toggle="modal" data-target="#message-<%= user.id %>">傳送訊息</div>
         <% end %>
-        <div class="modal fade" id="myModal-<%= user.id  %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="message-<%= user.id  %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog" style="text-align: left;">
             <div class="modal-content">
               <div class="modal-header">

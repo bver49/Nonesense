@@ -31,7 +31,7 @@
   <% if current_user %>
       <% if current_user == @post.user %>
         <%= link_to '編輯', edit_post_path(@post) ,:class => "ui button" %>
-        <%= link_to '刪除', post_path(@post) ,:class => "ui button", method: :delete, data: {confirm: "確定刪除?" } %>
+        <%= link_to '刪除', post_path(@post) ,:class => "ui button", method: :delete, data: {confirm: "確定刪除?" },remote: true %>
       <% end %>
   <% end %>
   <div class="post-content">
