@@ -1,0 +1,17 @@
+<% if current_user.id == @folder.user_id %>
+  <div class="folder-btnbar">
+    <%= link_to '返回',@folder,:class =>"btn btn-default" %>
+  </div>
+<% end %>
+<% @post.each_slice(4) do |posts| %>
+  <% posts.each do |post| %>
+    <div class="col-md-3 col-sm-3" style="margin-top:25px;" id="post-<%= post.id %>">
+      <div class="folder">
+        <div class="folder-posts">
+          <%= link_to image_tag(post.image.url(:post) , :class => 'folder-editpostimg'),post %>
+        </div>
+        <br><p class="text-center"><%= link_to '加入', addpost_path(id: post.id,folder_id: @folder.id ) ,:class => "btn btn-default", method: :put, remote: true %></p>
+      </div>
+    </div>
+  <% end %>
+<% end %>

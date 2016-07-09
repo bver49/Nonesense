@@ -1,8 +1,8 @@
-<% if current_user.id == @portfolio.user_id %>
-  <div class="portfolio-btnbar">
-    <%= link_to '新增',new_post_path(:pid => @portfolio.id),:class =>"btn btn-default" %>
-    <%= link_to '移入',portfolio_choose_addpost_path(@portfolio),:class =>"btn btn-default" %>
-    <%= link_to '編輯',portfolio_choose_removepost_path(@portfolio),:class =>"btn btn-default" %>
+<% if current_user.id == @folder.user_id %>
+  <div class="folder-btnbar">
+    <%= link_to '新增',new_post_path(:pid => @folder.id),:class =>"btn btn-default" %>
+    <%= link_to '移入',folder_choose_addpost_path(@folder),:class =>"btn btn-default" %>
+    <%= link_to '編輯',folder_choose_removepost_path(@folder),:class =>"btn btn-default" %>
   </div>
 <% end %>
 <div class="grid">

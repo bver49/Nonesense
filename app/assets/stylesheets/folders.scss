@@ -1,29 +1,29 @@
-// Place all the styles related to the portfolios controller here.
+// Place all the styles related to the folders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.portfolio{
+.folder{
   border:1px solid gray;
   padding:15px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.portfolio-posts{
+.folder-posts{
   width:100%;
   font-size:0px;
 }
 
-.portfolio-postimg{
+.folder-postimg{
   width:48%;
   margin:1%;
   display:inline-block;
 }
 
-.portfolio-editpostimg{
+.folder-editpostimg{
   width:100%;
 }
 
-.portfolio-btnbar{
+.folder-btnbar{
   width:100%;
   text-align: center;
 }

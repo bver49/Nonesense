@@ -9,7 +9,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="biglink"><%= link_to '動態實況',root_path %></li>
+        <li class="biglink"><%= link_to '動態實況',posts_path %></li>
         <hr>
         <li class="biglink"><%= link_to '找設計師',explore_path %></li>
         <hr>
@@ -19,7 +19,7 @@
             <hr>
             <li class="slink"><%= link_to '發文',new_post_path %></li>
             <li class="slink"><%= link_to '我的貼文', current_user %></li>
-            <li class="slink"><%= link_to '資料夾',portfolios_path %></li>
+            <li class="slink"><%= link_to '資料夾',folders_path %></li>
             <li class="slink"><%= link_to '追蹤的設計師',following_path %></li>
             <% if current_user.role == 2 %>
               <li class="slink"><%= link_to '管理用戶',adminuser_path %></li>
@@ -40,7 +40,7 @@
 
 <div id="menu-desktop">
   <ul class="sidemenu">
-    <li class="biglink"><%= link_to '動態實況',root_path %></li>
+    <li class="biglink"><%= link_to '動態實況',posts_path %></li>
     <hr>
     <li class="biglink"><%= link_to '找設計師',explore_path %></li>
     <hr>
@@ -50,7 +50,7 @@
         <hr>
         <li class="slink"><%= link_to '發文',new_post_path %></li>
         <li class="slink"><%= link_to '我的貼文', current_user %></li>
-        <li class="slink"><%= link_to '資料夾',portfolios_path %></li>
+        <li class="slink"><%= link_to '資料夾',folders_path %></li>
         <li class="slink"><%= link_to '追蹤的設計師',following_path %></li>
         <% if current_user.role == 2 %>
           <li class="slink"><%= link_to '管理用戶',adminuser_path %></li>

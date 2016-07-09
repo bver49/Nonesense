@@ -8,12 +8,12 @@ Rails.application.routes.draw do
       resources :comments, only: [:create]
     end
     resources :comments, only: [:destroy]
-    resources :portfolios do
-      get 'choose_addpost' => 'portfolios#choose_addpost'
-      get 'choose_removepost' => 'portfolios#choose_removepost'
+    resources :folders do
+      get 'choose_addpost' => 'folders#choose_addpost'
+      get 'choose_removepost' => 'folders#choose_removepost'
     end
-    put 'addpost/:id' => 'portfolios#addpost' ,:as => 'addpost'
-    delete 'removepost/:id' => 'portfolios#removepost' ,:as => 'removepost'
+    put 'addpost/:id' => 'folders#addpost' ,:as => 'addpost'
+    delete 'removepost/:id' => 'folders#removepost' ,:as => 'removepost'
 
 
     get 'signup' => 'users#signup',:as => 'signup'

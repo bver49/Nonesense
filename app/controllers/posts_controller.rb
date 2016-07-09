@@ -29,6 +29,10 @@ class PostsController < ApplicationController
       @userlike = @post.likes.find_by_user_id(current_user.id)
     end
     @comments = @post.comments
+
+    respond_to do |format|
+      format.html  { render layout: false }
+    end
   end
 
   def destroy
@@ -56,6 +60,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title,:content,:image,:tag_list,:portfolio_id)
+      params.require(:post).permit(:title,:content,:image,:tag_list,:folder_id)
     end
 end

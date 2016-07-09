@@ -1,0 +1,34 @@
+<% @folder.each_slice(4) do |folders| %>
+  <% folders.each do |folder| %>
+    <div class="col-md-3 col-sm-3" style="margin-top:25px;" id="folder-<%= folder.id %>">
+      <div class="folder">
+        <div class="folder-posts">
+          <% folder.mypost.each do |post| %>
+            <%= link_to image_tag(post.image.url(:post) , :class => 'folder-postimg'),folder %>
+          <% end %>
+        </div>
+        <br><p class="text-center"><%= link_to folder.title,folder %></p><br>
+        <p class="text-center"><%= link_to '刪除', folder_path(folder) ,:class => "btn btn-default", method: :delete, data: {confirm: "確定刪除?" }, remote: true %></p>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+<div class="col-md-3 col-sm-3" style="margin-top:25px;">
+  <div class="folder">
+    <%= render 'form' %>
+    <div class="folder-btnbar">
+      <%= image_tag 'menu/newfolder.png' ,:id => 'folder-createbtn' %>
+    </div>
+  </div>
+</div>
+<script>
+  $('#folder-form').hide();
+  $('#folder-createbtn').on('click',function(){
+      $('#folder-createbtn').hide();
+      $('#folder-form').fadeIn();
+  })
+  $('#folder-cancelbtn').on('click',function(){
+      $('#folder-createbtn').fadeIn();
+      $('#folder-form').hide();
+  })
+</script>

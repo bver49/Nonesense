@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20160704163247) do
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
+  create_table "folders", force: :cascade do |t|
+    t.string   "title"
+    t.text     "about"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "folders", ["user_id"], name: "index_folders_on_user_id"
+
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "post_id"
@@ -45,23 +55,13 @@ ActiveRecord::Schema.define(version: 20160704163247) do
     t.datetime "updated_at",              null: false
   end
 
-  create_table "portfolios", force: :cascade do |t|
-    t.string   "title"
-    t.text     "about"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "portfolios", ["user_id"], name: "index_portfolios_on_user_id"
-
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "image"
     t.text     "content"
-    t.integer  "portfolio_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "folder_id",  default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "user_id"
   end
 
