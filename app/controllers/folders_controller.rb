@@ -15,9 +15,9 @@ class FoldersController < ApplicationController
     @folder= Folder.new(folder_params)
     @folder.user_id = current_user.id
     if @folder.save
-      redirect_to folders_path
+      redirect_to myfolder_path(current_user)
     else
-      redirect_to folders_path
+      redirect_to myfolder_path(current_user)
     end
   end
 
