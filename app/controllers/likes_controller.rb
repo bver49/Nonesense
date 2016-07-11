@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  before_action :check_login
   def likepost
     @post = Post.find(params[:id])
     @like = @post.likes.new

@@ -1,4 +1,5 @@
 class RelationshipsController < ApplicationController
+  before_action :check_login
   def follow_user
     @user = User.find_by! id: params[:id]
     if current_user.follow @user.id

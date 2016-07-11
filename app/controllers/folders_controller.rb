@@ -1,5 +1,5 @@
 class FoldersController < ApplicationController
-  before_action :check_login,except: %i[myfolder]
+  before_action :check_login,except: %i[myfolder show]
   before_action :find_folder, only: %i[show edit update destroy]
 
   def myfolder

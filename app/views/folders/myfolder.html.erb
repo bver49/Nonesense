@@ -8,7 +8,7 @@
       </div>
       <% if current_user && (current_user.id == @folderownerid ) %>
         <br><p class="text-center"><%= link_to folder.title,folder %></p><br>
-        <p class="text-center"><%= link_to '刪除', folder_path(folder) ,:class => "btn btn-default", method: :delete, data: {confirm: "確定刪除?" }, remote: true %></p>
+        <p class="text-center"><%= link_to '刪除', folder_path(folder) ,:class => "ui black basic button", method: :delete, data: {confirm: "確定刪除?" }, remote: true %></p>
       <% end %>
     </div>
   </div>
