@@ -10,11 +10,20 @@
   <% @post.each_slice(4) do |posts| %>
       <% posts.each do |post| %>
         <div class="col-lg-3 col-md-3 col-sm-3 grid-item">
-            <%= link_to image_tag(post.image.url , :class =>'postimg'),post %>
+          <div class="post-show" data-toggle="modal" data-target="#postmodal" data-id="<%= post.id %>">
+            <%= image_tag post.image.url , :class =>'postimg' %>
+          </div>
             <span class="authorname"><%=link_to post.user.name , post.user %></span>
         </div>
       <% end %>
   <% end %>
+</div>
+
+<div class="modal fade" id="postmodal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    </div>
+  </div>
 </div>
 
 <script type="text/javascript">
@@ -23,6 +32,25 @@
       itemSelector: '.grid-item',
       columnWidth: '.grid-sizer',
       percentPosition: true
+    });
+  });
+
+  /* ajax show */
+  $(document).ready(function(){
+    $('.post-show').on('click',function(){
+      var ajaxurl = '/posts/' + this.getAttribute("data-id");
+      $.ajax({
+        url:ajaxurl,
+        type: 'GET',
+        success: function(response) {
+          $('#postmodal .modal-content').prepend(response);
+          $('#postmodal').data('bs.modal').handleUpdate();
+        }
+      });
+    });
+    $('#postmodal').on('hidden.bs.modal', function () {
+      console.log('hide');
+      $('#postmodal .modal-content').empty();
     });
   });
 </script>
