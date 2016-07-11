@@ -1,4 +1,4 @@
-$('#btnbar-<%= @user.id %> #follow-button').attr('class', 'ui red basic button')
+$('#btnbar-<%= @user.id %> #follow-button').attr('class', 'tiny ui red basic button')
                   .text('追蹤中')
                   .attr('href', "/<%= @user.id %>/unfollow_user")
                   .attr('id', 'unfollow-button');
