@@ -50,6 +50,7 @@ class UsersController < ApplicationController
     end
 
     def show
+      @show = 1;
       @user = User.find(params[:id])
     end
 

@@ -31,6 +31,9 @@
         <% else %>
           <li class="slink"><%= link_to '註冊', signup_path %></li>
         <% end %>
+        <% if @single %>
+        sss
+        <% end %>
       </ul>
     </div>
   </div>
@@ -61,6 +64,12 @@
       <% end %>
     <% else %>
       <li class="slink"><%= link_to '註冊', signup_path %></li>
+    <% end %>
+    <% if @show %>
+      <li class="biglink"><%= link_to @user.name , @user %></li>
+      <hr>
+      <li class="slink"><%= link_to '資料夾' , myfolder_path(@user.id) %></li>
+      <li class="slink"><%= link_to '追蹤的設計師' , following_path(@user.id) %></li>
     <% end %>
   </ul>
 </div>
