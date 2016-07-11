@@ -4,7 +4,7 @@
       <div class="following">
         <div class="following-posts">
           <% user.mypost do |post| %>
-            <div class="following-post">
+            <div class="following-post" data-toggle="modal" data-target="#postmodal" data-id="<%= post.id %>">
               <%= image_tag post.image.url(:post) , :class => 'following-postimg' %>
             </div>
           <% end %>
@@ -17,3 +17,32 @@
     </div>
   <% end %>
 <% end %>
+
+<div class="modal fade" id="postmodal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  /* ajax show */
+  $(document).ready(function(){
+    $('.following-post').on('click',function(){
+      var ajaxurl = '/posts/' + this.getAttribute("data-id");
+      $.ajax({
+        url:ajaxurl,
+        type: 'GET',
+        success: function(response) {
+          $('#postmodal .modal-content').prepend(response);
+          $('#postmodal').data('bs.modal').handleUpdate();
+        }
+      });
+    });
+    $('#postmodal').on('hidden.bs.modal', function () {
+      console.log('hide');
+      $('#postmodal .modal-content').empty();
+    });
+  });
+</script>

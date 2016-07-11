@@ -1,58 +1,65 @@
-<div id="post-<%= @post.id %>">
-  <%= image_tag @post.image.url ,:class =>'postimg' %>
-  <div class="ui labeled button" tabindex="0">
-    <% if current_user %>
-      <% if @userlike == nil %>
-        <%= link_to likepost_path,remote: true,method: :post,:id =>'likebtn',:class =>'ui button' do %>
-            <i class="heart icon"></i><span id="likebtn-word">Like</span>
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <h4 class="modal-title"><%= @post.title %></h4>
+</div>
+<div class="modal-body">
+  <div id="post-<%= @post.id %>">
+    <%= image_tag @post.image.url ,:class =>'postimg' %>
+    <div class="ui labeled button" tabindex="0">
+      <% if current_user %>
+        <% if @userlike == nil %>
+          <%= link_to likepost_path,remote: true,method: :post,:id =>'likebtn',:class =>'ui button' do %>
+              <i class="heart icon"></i><span id="likebtn-word">Like</span>
+          <% end %>
+          <span class="ui basic label" id="likeamt">
+            <%= @post.likeamt %>
+          </span>
+        <% else %>
+          <%= link_to unlikepost_path,remote: true,method: :post,:id =>'unlikebtn',:class =>'ui button red' do %>
+              <i class="heart icon"></i><span id="likebtn-word">UnLike</span>
+          <% end %>
+          <span class="ui basic label red" id="likeamt">
+            <%= @post.likeamt %>
+          </span>
         <% end %>
-        <span class="ui basic label" id="likeamt">
-          <%= @post.likeamt %>
-        </span>
       <% else %>
-        <%= link_to unlikepost_path,remote: true,method: :post,:id =>'unlikebtn',:class =>'ui button red' do %>
-            <i class="heart icon"></i><span id="likebtn-word">UnLike</span>
+        <div class="ui labeled button" tabindex="0">
+          <div class="ui button">
+            <i class="heart icon"></i>Like
+          </div>
+          <span class="ui basic label">
+            <%= @post.likeamt %>
+          </span>
+        </div>
+      <% end %>
+    </div>
+    <% if current_user %>
+        <% if current_user == @post.user %>
+          <%= link_to '編輯', edit_post_path(@post) ,:class => "ui button" %>
+          <%= link_to '刪除', post_path(@post) ,:class => "ui button", method: :delete, data: {confirm: "確定刪除?" },remote: true %>
         <% end %>
-        <span class="ui basic label red" id="likeamt">
-          <%= @post.likeamt %>
-        </span>
+    <% end %>
+    <div class="post-content">
+      <%= @post.content %>
+    </div>
+    <p><%= @post.tag_list %></p>
+    <div id="comments">
+      <%= render @comments %>
+    </div>
+    <% if current_user %>
+      <div class="ui button" id="comment-btn">留言</div>
+      <%= form_for [ @post , @post.comments.new ], remote: true do |f| %>
+        <%= f.text_field :body ,:class=>"form-control" %><br>
+        <%= f.submit '發表',:class => "ui button" %>
+        <div class="ui button" id="comment-cancelbtn">取消</div>
       <% end %>
     <% else %>
-      <div class="ui labeled button" tabindex="0">
-        <div class="ui button">
-          <i class="heart icon"></i>Like
-        </div>
-        <span class="ui basic label">
-          <%= @post.likeamt %>
-        </span>
-      </div>
+      <p class="text-center"><%= link_to '請先登入',login_path,:class => 'ui button' %></p>
     <% end %>
   </div>
-  <% if current_user %>
-      <% if current_user == @post.user %>
-        <%= link_to '編輯', edit_post_path(@post) ,:class => "ui button" %>
-        <%= link_to '刪除', post_path(@post) ,:class => "ui button", method: :delete, data: {confirm: "確定刪除?" },remote: true %>
-      <% end %>
-  <% end %>
-  <div class="post-content">
-    <%= @post.content %>
-  </div>
-  <p><%= @post.tag_list %></p>
-  <div id="comments">
-    <%= render @comments %>
-  </div>
-  <% if current_user %>
-    <div class="ui button" id="comment-btn">留言</div>
-    <%= form_for [ @post , @post.comments.new ], remote: true do |f| %>
-      <%= f.text_field :body ,:class=>"form-control" %><br>
-      <%= f.submit '發表',:class => "ui button" %>
-      <div class="ui button" id="comment-cancelbtn">取消</div>
-    <% end %>
-  <% else %>
-    <p class="text-center"><%= link_to '請先登入',login_path,:class => 'ui button' %></p>
-  <% end %>
 </div>
-
 
 <script>
   $('#comment-btn').on('click',function(){

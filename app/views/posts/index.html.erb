@@ -15,13 +15,6 @@
 <div class="modal fade" id="postmodal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      </div>
     </div>
   </div>
 </div>
@@ -42,14 +35,14 @@
         url:ajaxurl,
         type: 'GET',
         success: function(response) {
-          $('#postmodal .modal-body').prepend(response);
+          $('#postmodal .modal-content').prepend(response);
           $('#postmodal').data('bs.modal').handleUpdate();
         }
       });
     });
     $('#postmodal').on('hidden.bs.modal', function () {
       console.log('hide');
-      $('#postmodal .modal-body').empty();
+      $('#postmodal .modal-content').empty();
     });
   });
 </script>
