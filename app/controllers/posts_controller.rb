@@ -32,6 +32,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html  { render layout: false }
+      format.js
     end
   end
 

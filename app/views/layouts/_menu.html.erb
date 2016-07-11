@@ -11,7 +11,7 @@
       <ul class="nav navbar-nav">
         <li class="biglink"><%= link_to '動態實況',posts_path %></li>
         <hr>
-        <li class="biglink"><%= link_to '找設計師',explore_path %></li>
+        <li class="biglink"><%= link_to '找設計師',users_path %></li>
         <hr>
         <% if current_user  %>
           <li class="biglink"><%= link_to current_user.name , current_user%></li>
@@ -42,7 +42,7 @@
   <ul class="sidemenu">
     <li class="biglink"><%= link_to '動態實況',posts_path %></li>
     <hr>
-    <li class="biglink"><%= link_to '找設計師',explore_path %></li>
+    <li class="biglink"><%= link_to '找設計師',users_path %></li>
     <hr>
     <% if current_user  %>
       <li class="biglink"><%= link_to current_user.name , current_user%></li>

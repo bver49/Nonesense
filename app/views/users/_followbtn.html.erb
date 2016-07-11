@@ -7,23 +7,8 @@
       <% if current_user_is_following(current_user.id, user.id) %>
         <% if current_user.role > 0 %>
           <div class="btn btn-default" id="send-button" data-toggle="modal" data-target="#message-<%= user.id %>">傳送訊息</div>
+          <%= render'./messages/form', receiver: user %>
         <% end %>
-        <div class="modal fade" id="message-<%= user.id  %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog" style="text-align: left;">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">
-                  <span aria-hidden="true">&times;</span>
-                  <span class="sr-only">Close</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">寄信</h4>
-              </div>
-              <div class="modal-body">
-                <%= render'./messages/form', receiver: user %>
-              </div>
-            </div>
-          </div>
-        </div>
         <%= link_to '追蹤中', unfollow_user_path(user),
                           remote: true,
                           class: 'btn unfollow-button',

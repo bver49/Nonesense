@@ -6,25 +6,25 @@
         <%= link_to image_tag('menu/mailbox.png', :id => 'mailbox'),messages_path %>
         <%= link_to image_tag('menu/mailboxhover.png', :id => 'mailboxhover'),messages_path %>
       </li>
-    <% end %>
-    <li id="notification">
-      <div id ='notificationLink'>
-        <%= image_tag('menu/notify.png') %>
-      </div>
-      <div id="notificationContainer">
-        <div id="notificationTitle">通知</div>
-        <div id="notificationsBody">
-          <% mynotice.each do |n|  %>
-            <% if n.types == 1 || n.types == 3 %>
-              <%= link_to n.body , post_path(n.sender_id) ,:class => 'notifications'%>
-            <% else %>
-              <%= link_to n.body , user_path(n.sender_id),:class => 'notifications' %>
-            <% end %>
-          <% end %>
+      <li id="notification">
+        <div id ='notificationLink'>
+          <%= image_tag('menu/notify.png') %>
         </div>
-        <div id="notificationFooter"><%= link_to '全部通知',notice_path %></div>
-      </div>
-    </li>
+        <div id="notificationContainer">
+          <div id="notificationTitle">通知</div>
+          <div id="notificationsBody">
+            <% mynotice.each do |n|  %>
+              <% if n.types == 1 || n.types == 3 %>
+                <%= link_to n.body , post_path(n.sender_id) ,:class => 'notifications'%>
+              <% else %>
+                <%= link_to n.body , user_path(n.sender_id),:class => 'notifications' %>
+              <% end %>
+            <% end %>
+          </div>
+          <div id="notificationFooter"><%= link_to '全部通知',notice_path %></div>
+        </div>
+      </li>
+    <% end %>
   <% else %>
     <li><%= link_to image_tag('menu/login.png'),login_path %></li>
   <% end %>

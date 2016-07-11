@@ -27,7 +27,6 @@ Rails.application.routes.draw do
     post ':id/unlike_post', to: 'likes#unlikepost',:as => 'unlikepost'
 
     get 'following' => 'users#following'
-    get 'explore' => 'users#explore'
 
     get 'notice' => 'messages#notice'
 

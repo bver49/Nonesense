@@ -10,7 +10,7 @@
           <% end %>
         </div>
         <%= link_to image_tag(user.avatar.url(:avatar) , :class => 'following-avatar'),user %>
-        <br><p class="text-center"><%= user.name %></p>
+        <br><p class="text-center"><%= link_to user.name , user %></p>
         <br><p class="text-center"><%= user.about %></p><br>
         <%= render'followbtn', user: user %>
       </div>

@@ -1,4 +1,12 @@
 class UsersController < ApplicationController
+    def index
+      if current_user
+        @user = User.where('id != ? AND role > ?', current_user.id,0)
+      else
+        @user = User.where('role > ?',0)
+      end
+    end
+
     def signup
      if current_user
       redirect_to posts_path
@@ -76,32 +84,7 @@ class UsersController < ApplicationController
       @user = User.where(id:current_user.following).order("created_at desc")
     end
 
-    def explore
-      if current_user
-        @user = User.where('id != ? AND role > ?', current_user.id,0)
-      else
-        @user = User.where('role > ?',0)
-      end
-    end
-
-    def index
-      @user = User.where('id != ?', current_user.id)
-    end
-
-    def auth
-      if !params[:email] || !params[:token]
-        redirect_to root_path
-      else
-        @user = User.find_by_email(params[:email])
-        if @user.created_at.to_i.to_s == params[:token]
-          @user.role = 1
-          @user.save
-        else
-          redirect_to root_path
-        end
-      end
-    end
-
+    #for admin
     def adminuser
       if current_user.role != 2
         redirect_to root_path
