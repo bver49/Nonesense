@@ -1,8 +1,10 @@
 class FoldersController < ApplicationController
-  before_action :check_login
+  before_action :check_login,except: %i[myfolder]
   before_action :find_folder, only: %i[show edit update destroy]
-  def index
-    @folder= Folder.where("user_id = ?",current_user.id)
+
+  def myfolder
+    @folder= Folder.where("user_id = ?",params[:id])
+    @folderownerid = params[:id].to_i
   end
 
   def show

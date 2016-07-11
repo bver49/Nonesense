@@ -25,23 +25,6 @@
   text-align: center;
 }
 
-#unfollow-button,#follow-button,#edit-button,#send-button,#del-button{
-  display:inline-block;
-  width:100px;
-  border:1px solid black;
-  margin:0 auto;
-  margin-top:5px;
-  color:rgb(171,39,60);
-}
-
-#edit-button{
-  color:black;
-}
-
-#send-button{
-  color:blue;
-}
-
 .following{
   border:1px solid gray;
   padding:15px;
@@ -77,13 +60,9 @@
 	height:100px;
 	overflow:hidden;
 	margin:30px auto;
+  border-radius:50%;
 }
 
 .jcrop-holder{
 	margin:0px auto;
-}
-
-#crop-btn{
-	margin:0px auto;
-	display:block;
 }

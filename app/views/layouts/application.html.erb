@@ -3,6 +3,7 @@
 <head>
   <title>Nonesense</title>
   <meta content='<%= current_user ? current_user.id : "" %>' name='user-id'/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -15,12 +16,12 @@
           <button type="button" class="close" data-dismiss="alert">&times;</button>
         </div>
   <% end %>
-  <div class="container">
+  <div class="container" style="width:90%;">
     <div class="row">
-      <div class="col-md-2 col-sm-2">
+      <div class="col-lg-2 col-md-2">
         <%= render 'layouts/menu' %>
       </div>
-      <div class="col-md-10 col-sm-10" style="padding-bottom:200px;">
+      <div class="col-lg-10 col-md-10" style="padding-bottom:200px;">
         <%= render 'layouts/topmenu' %>
         <%= yield %>
       </div>

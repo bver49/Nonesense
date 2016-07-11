@@ -1,7 +1,6 @@
 <div class="topmenu">
   <% if current_user %>
     <li><%= link_to image_tag('menu/logout.png'),logout_path,method: :delete  %></li>
-    <% if current_user.role > 0 %>
       <li id="mailboxicon">
         <%= link_to image_tag('menu/mailbox.png', :id => 'mailbox'),messages_path %>
         <%= link_to image_tag('menu/mailboxhover.png', :id => 'mailboxhover'),messages_path %>
@@ -24,7 +23,6 @@
           <div id="notificationFooter"><%= link_to '全部通知',notice_path %></div>
         </div>
       </li>
-    <% end %>
   <% else %>
     <li><%= link_to image_tag('menu/login.png'),login_path %></li>
   <% end %>

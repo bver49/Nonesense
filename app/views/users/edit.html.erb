@@ -23,17 +23,17 @@
         <%= f.text_field :email, :class =>"form-control" %><br>
       </div>
       <div class="form-group">
-        <%= f.label :password, '密碼' %>
+        <%= f.label :password, '密碼(8碼以上)' %>
         <%= f.password_field :password, :class =>"form-control"  %><br>
       </div>
       <div class="form-group">
-        <%= f.label :password_confirmation, '確認密碼' %>
+        <%= f.label :password_confirmation, '再次輸入密碼' %>
         <%= f.password_field :password_confirmation, :class =>"form-control"  %><br>
       </div>
       <div class="form-group">
         <%= f.label :about, '個人簡介' %>
         <%= f.text_area :about, :class =>"form-control"  %><br>
       </div>
-      <%= f.submit '更新', :class =>"btn btn-default" %>
+      <%= f.submit '更新', :class =>"ui black basic button" %>
   <% end %>
 </div>

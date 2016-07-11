@@ -18,8 +18,10 @@ class PostsController < ApplicationController
     @post= Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      redirect_to root_path
+      flash[:success] = "發表成功"
+      redirect_to user_path(current_user)
     else
+      flash[:danger] = "發表失敗"
       render 'new'
     end
   end
@@ -38,6 +40,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
+    flash[:success] = "刪除成功"
     respond_to do |format|
       format.html { redirect_to user_path(current_user) }
       format.js
@@ -49,8 +52,10 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to @post
+      flash[:success] = "更新成功"
+      redirect_to user_path(current_user)
     else
+      flash[:danger] = "更新失敗"
       render 'edit'
     end
   end

@@ -7,29 +7,14 @@
         <p class="text-center"><%= user.about %></p><br>
         <p class="text-center"><%= user.email %></p><br>
         <div class="btnbar">
-          <%= link_to '刪除帳號' , admindestroy_path(user.id) , :class => 'btn btn-default', method: :delete, data: { confirm: "確定刪除嗎?" },remote: :true %>
-          <div class="btn btn-default" data-toggle="modal" data-target="#myModal-<%= user.id %>">傳送訊息</div><br><br>
+          <%= link_to '刪除帳號' , admindestroy_path(user.id) , :class => 'ui black basic button', method: :delete, data: { confirm: "確定刪除嗎?" },remote: :true %>
+          <div class="ui black basic button" data-toggle="modal" data-target="#message-<%= user.id %>">傳送訊息</div>
           <% if user.role == 0  %>
             <div id="upgradeuserbtn-<%= user.id %>">
-              <%= link_to '通過驗證' , upgradeuser_path(user.id) , :class => 'btn btn-default' , method: :post, data: { confirm: "確定驗證嗎?" },remote: :true %>
+              <%= link_to '通過驗證' , upgradeuser_path(user.id) , :class => 'ui black basic button' , method: :post, data: { confirm: "確定驗證嗎?" },remote: :true %>
             </div>
           <% end %>
-          <div class="modal fade" id="myModal-<%= user.id  %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog" style="text-align: left;">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">&times;</span>
-                    <span class="sr-only">Close</span>
-                  </button>
-                  <h4 class="modal-title" id="myModalLabel">寄信</h4>
-                </div>
-                <div class="modal-body">
-                  <%= render'./messages/form', receiver: user %>
-                </div>
-              </div>
-            </div>
-          </div>
+          <%= render'./messages/form', receiver: user %>
         </div>
       </div>
     </div>

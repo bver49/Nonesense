@@ -19,14 +19,14 @@
             <hr>
             <li class="slink"><%= link_to '發文',new_post_path %></li>
             <li class="slink"><%= link_to '我的貼文', current_user %></li>
-            <li class="slink"><%= link_to '資料夾',folders_path %></li>
-            <li class="slink"><%= link_to '追蹤的設計師',following_path %></li>
+            <li class="slink"><%= link_to '資料夾',myfolder_path(current_user) %></li>
+            <li class="slink"><%= link_to '追蹤的設計師',following_path(current_user) %></li>
             <% if current_user.role == 2 %>
               <li class="slink"><%= link_to '管理用戶',adminuser_path %></li>
               <li class="slink"><%= link_to '管理文章',adminpost_path %></li>
             <% end %>
           <% else %>
-            <li class="slink"><%= link_to '追蹤的設計師',following_path %></li>
+            <li class="slink"><%= link_to '追蹤的設計師',following_path(current_user)  %></li>
           <% end %>
         <% else %>
           <li class="slink"><%= link_to '註冊', signup_path %></li>
@@ -50,14 +50,14 @@
         <hr>
         <li class="slink"><%= link_to '發文',new_post_path %></li>
         <li class="slink"><%= link_to '我的貼文', current_user %></li>
-        <li class="slink"><%= link_to '資料夾',folders_path %></li>
-        <li class="slink"><%= link_to '追蹤的設計師',following_path %></li>
+        <li class="slink"><%= link_to '資料夾',myfolder_path(current_user) %></li>
+        <li class="slink"><%= link_to '追蹤的設計師',following_path(current_user)  %></li>
         <% if current_user.role == 2 %>
           <li class="slink"><%= link_to '管理用戶',adminuser_path %></li>
           <li class="slink"><%= link_to '管理文章',adminpost_path %></li>
         <% end %>
       <% else %>
-        <li class="slink"><%= link_to '追蹤的設計師',following_path %></li>
+        <li class="slink"><%= link_to '追蹤的設計師',following_path(current_user)  %></li>
       <% end %>
     <% else %>
       <li class="slink"><%= link_to '註冊', signup_path %></li>

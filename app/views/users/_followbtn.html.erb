@@ -1,26 +1,28 @@
 <div id="btnbar-<%= user.id %>" class="btnbar">
   <% if current_user %>
     <% if user == current_user %>
-      <%= link_to '編輯', edit_user_path(user), class: 'btn', id: 'edit-button' %>
-      <%= link_to '刪除帳號' , user_path(user) , :class => 'btn',id: 'del-button', method: :delete, data: { confirm: "確定刪除嗎?" } %>
+      <%= link_to '編輯', edit_user_path(user), class: 'ui black basic button', id: 'edit-button' %>
+      <%= link_to '刪除帳號' , user_path(user) , :class => 'ui red basic button',id: 'del-button', method: :delete, data: { confirm: "確定刪除嗎?" } %>
     <% else %>
       <% if current_user_is_following(current_user.id, user.id) %>
         <% if current_user.role > 0 %>
-          <div class="btn btn-default" id="send-button" data-toggle="modal" data-target="#message-<%= user.id %>">傳送訊息</div>
+          <div class="ui black basic button" id="send-button" data-toggle="modal" data-target="#message-<%= user.id %>">傳送訊息</div>
           <%= render'./messages/form', receiver: user %>
         <% end %>
         <%= link_to '追蹤中', unfollow_user_path(user),
                           remote: true,
-                          class: 'btn unfollow-button',
+                          class: 'ui red basic button',
                           id: 'unfollow-button',
                           method: :post %>
       <% else %>
         <%= link_to '追蹤', follow_user_path(user),
                           remote: true,
-                          class: 'btn follow-button',
+                          class: 'ui black basic button',
                           id: 'follow-button',
                           method: :post %>
       <% end %>
     <% end %>
   <% end %>
+  <%= link_to '資料夾' , myfolder_path(user.id),:class => 'ui black basic button' %>
+  <%= link_to '正在追蹤' , following_path(user.id),:class => 'ui black basic button' %>
 </div>

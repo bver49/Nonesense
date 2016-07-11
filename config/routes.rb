@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get 'choose_addpost' => 'folders#choose_addpost'
       get 'choose_removepost' => 'folders#choose_removepost'
     end
+    get 'myfolder/:id' => 'folders#myfolder', :as => "myfolder"
     put 'addpost/:id' => 'folders#addpost' ,:as => 'addpost'
     delete 'removepost/:id' => 'folders#removepost' ,:as => 'removepost'
 
@@ -26,7 +27,7 @@ Rails.application.routes.draw do
     post ':id/like_post', to: 'likes#likepost', :as => 'likepost'
     post ':id/unlike_post', to: 'likes#unlikepost',:as => 'unlikepost'
 
-    get 'following' => 'users#following'
+    get 'following/:id' => 'users#following', :as => 'following'
 
     get 'notice' => 'messages#notice'
 

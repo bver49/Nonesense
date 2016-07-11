@@ -19,8 +19,8 @@ class UsersController < ApplicationController
     	@user=User.new(user_params)
 
     	if @user.save
-          render :crop
           flash[:success] = "註冊成功"
+          render :crop
       else
         flash[:danger] = "註冊失敗"
         render 'signup'
@@ -81,7 +81,8 @@ class UsersController < ApplicationController
     end
 
     def following
-      @user = User.where(id:current_user.following).order("created_at desc")
+      @follower=User.find(params[:id])
+      @user = User.where(id:@follower.following).order("created_at desc")
     end
 
     #for admin
