@@ -12,12 +12,41 @@
       <% @post.each do |post| %>
       <tr id="postrow-<%= post.id %>">
         <td>
-          <%= link_to post.title,post %>
+          <div class="post-show" data-id="<%= post.id %>" data-toggle="modal" data-target="#postmodal"><%= post.title %></div>
         </td>
         <td><%= link_to post.user.name , post.user  %></td>
-        <td><%= link_to '刪除', post_path(post) ,:class => "ui button", method: :delete, data: {confirm: "確定刪除?" },remote: true %></td>
+        <td><%= link_to '刪除', post_path(post) ,:class => "tiny ui black basic button", method: :delete, data: {confirm: "確定刪除?" },remote: true %></td>
       </tr>
       <% end %>
     </tbody>
   </table>
 </div>
+
+<div class="modal fade" id="postmodal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  /* ajax show */
+  $(document).ready(function(){
+    $('.post-show').on('click',function(){
+      var ajaxurl = '/posts/' + this.getAttribute("data-id");
+      $.ajax({
+        url:ajaxurl,
+        type: 'GET',
+        success: function(response) {
+          $('#postmodal .modal-content').prepend(response);
+          $('#postmodal').data('bs.modal').handleUpdate();
+        }
+      });
+    });
+    $('#postmodal').on('hidden.bs.modal', function () {
+      console.log('hide');
+      $('#postmodal .modal-content').empty();
+    });
+  });
+</script>

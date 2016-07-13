@@ -12,7 +12,7 @@
 		<%= f.text_field :title , :class =>"form-control" %><br><br>
 	</div>
 	<div class="form-group">
-		<%= f.label :image, '縮圖: ' %>
+		<%= f.label :image, '縮圖(圖片大小限制15mb以下): ' %><br><br>
 		<%= f.file_field :image , :class =>"form-control" %><br><br>
 	</div>
 	<div class="form-group">
@@ -21,7 +21,7 @@
 	</div>
 	<div class="form-group">
 		<%= f.label :tag_list, '標籤: ' %>
-		<%= f.text_field :tag_list, :class =>"form-control" %><br><br>
+		<%= f.text_field :tag_list, :class =>"form-control", placeholder:"#風景#標籤" %><br><br>
 	</div>
 	<% if params[:pid] %>
 		<input type='hidden' value='<%= params[:pid] %>' name='post[folder_id]' />
@@ -29,7 +29,7 @@
 		<input type='hidden' value='0' name='folder_id' />
 	<% end %>
 	<div class="form-group">
-		<%= f.submit '創立', :class =>"ui button" %>
-		<%= link_to '返回', :back , :class =>"ui button" %>
+		<%= f.submit '創立', :class =>"tiny ui black basic button" %>
+		<%= link_to '返回', :back , :class =>"tiny ui black basic button" %>
 	</div>
 <% end %>

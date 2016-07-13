@@ -1,6 +1,6 @@
 <div class="col-md-8 col-md-offset-2">
   <h1 class="h2 text-center">我的信箱</h1><br>
-  <table class="ui celled table">
+  <table class="ui celled table unstackable">
     <thead>
       <tr>
         <th>信件標題</th>
@@ -18,7 +18,10 @@
           <%= link_to msg.title,msg %>
         </td>
         <td><%= link_to msg.sender.name , msg.sender  %></td>
-        <td><%= link_to '刪除', message_path(msg) ,:class => "btn btn-default", method: :delete, data: {confirm: "確定刪除?" },remote: true %></td>
+        <td>
+          <%= link_to '刪除', message_path(msg) ,:class => "tiny ui black basic button", method: :delete, data: {confirm: "確定刪除?" },remote: true %>
+          <%= link_to '回信',new_message_path(:r => msg.sender_id),:class => "tiny ui black basic button" %>
+        </td>
       </tr>
       <% end %>
     </tbody>

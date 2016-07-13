@@ -2,11 +2,16 @@ class MessagesController < ApplicationController
   before_action :check_login
   before_action :find_msg, only: %i[show destroy]
 
+  def new
+    @msg = Message.new
+  end
+
   def create
     @msg= Message.new(msg_params)
     @msg.sender_id = current_user.id
     @msg.save
     respond_to do |format|
+      flash[:success] = "發表成功"
       format.html { redirect_to messages_path }
       format.js
     end

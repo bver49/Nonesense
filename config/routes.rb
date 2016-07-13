@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     root "users#signup"
 
     resources :users,except: [:new]
-    resources :messages, except: [:new,:update,:edit]
+    resources :messages, except: [:update,:edit]
     resources :posts do
       resources :comments, only: [:create]
     end
