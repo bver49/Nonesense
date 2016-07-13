@@ -28,12 +28,18 @@
   margin-top:10px;
 }
 
-@media screen and (max-width:768px){
-  .grid-sizer{
-    width:100%;
-  }
+/* single post */
+#post-hashtagicon{
+  width:15px;
 }
 
 .post-content{
   margin:40px 0px;
+}
+
+
+@media screen and (max-width:768px){
+  .grid-sizer{
+    width:100%;
+  }
 }

@@ -44,7 +44,7 @@
     <div class="post-content">
       <%= @post.content %>
     </div>
-    <p><%= @post.tag_list %></p>
+    <p><%= image_tag 'post/hashtag.png',:id => "post-hashtagicon" %><%= @post.tag_list %></p>
     <div id="comments">
       <%= render @comments %>
     </div>
