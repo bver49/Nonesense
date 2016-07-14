@@ -3,6 +3,10 @@ class FoldersController < ApplicationController
   before_action :find_folder, only: %i[show edit update destroy]
 
   def myfolder
+    @user = User.find(params[:id])
+    if @user.role == 0
+      redirect_to :back
+    end
     @folder= Folder.where("user_id = ?",params[:id])
     @folderownerid = params[:id].to_i
   end

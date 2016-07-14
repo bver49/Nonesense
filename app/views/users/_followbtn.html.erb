@@ -4,22 +4,24 @@
       <%= link_to '編輯', edit_user_path(user), class: 'tiny ui black basic button', id: 'edit-button' %>
       <%= link_to '刪除帳號' , user_path(user) , :class => 'tiny ui red basic button',id: 'del-button', method: :delete, data: { confirm: "確定刪除嗎?" } %>
     <% else %>
-      <% if current_user_is_following(current_user.id, user.id) %>
-        <%# if current_user.role > 0 %>
-          <div class="tiny ui black basic button" id="send-button" data-toggle="modal" data-target="#message-<%= user.id %>">傳送訊息</div>
-          <%= render'./messages/form', receiver: user %>
-        <%# end %>
-        <%= link_to '追蹤中', unfollow_user_path(user),
-                          remote: true,
-                          class: 'tiny ui red basic button',
-                          id: 'unfollow-button',
-                          method: :post %>
-      <% else %>
-        <%= link_to '追蹤', follow_user_path(user),
-                          remote: true,
-                          class: 'tiny ui black basic button',
-                          id: 'follow-button',
-                          method: :post %>
+      <%# if current_user.role > 0 %>
+      <div class="tiny ui black basic button" id="send-button" data-toggle="modal" data-target="#message-<%= user.id %>">傳送訊息</div>
+      <%= render'./messages/form', receiver: user %>
+      <%# end %>
+      <% if user.role > 0 %>
+        <% if current_user_is_following(current_user.id, user.id) %>
+          <%= link_to '追蹤中', unfollow_user_path(user),
+                            remote: true,
+                            class: 'tiny ui red basic button',
+                            id: 'unfollow-button',
+                            method: :post %>
+        <% else %>
+          <%= link_to '追蹤', follow_user_path(user),
+                            remote: true,
+                            class: 'tiny ui black basic button',
+                            id: 'follow-button',
+                            method: :post %>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
