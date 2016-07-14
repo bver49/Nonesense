@@ -1,4 +1,4 @@
-<% if current_user && (current_user.id == @folder.id ) %>
+<% if current_user && (current_user.id == @folder.user_id ) %>
   <div class="folder-btnbar">
     <%= link_to '新增',new_post_path(:pid => @folder.id),:class =>"ui black basic button" %>
     <%= link_to '移入',folder_choose_addpost_path(@folder),:class =>"ui black basic button" %>

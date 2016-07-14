@@ -1,6 +1,6 @@
 <% @user.each_slice(3) do |users| %>
   <% users.each do |user| %>
-    <div class="col-lg-3 col-md-4 col-sm-4" style="margin-top:25px;">
+    <div class="col-md-4 col-sm-4" style="margin-top:25px;">
       <div class="following">
         <div class="following-posts">
           <% user.mypost.limit(4).each do |post| %>
