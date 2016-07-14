@@ -1,6 +1,6 @@
 <% @user.each_slice(3) do |users| %>
   <% users.each do |user| %>
-    <div class="col-md-4 col-sm-4" style="margin-top:25px;">
+    <div class="col-lg-3 col-md-4 col-sm-4" style="margin-top:25px;">
       <div class="following">
         <div class="following-posts">
           <% user.mypost.limit(4).each do |post| %>
@@ -11,7 +11,7 @@
         </div>
         <%= link_to image_tag(user.avatar.url(:avatar) , :class => 'following-avatar'),user %>
         <br><p class="text-center"><%= link_to user.name , user %></p>
-        <br><p class="text-center"><%= user.about %></p><br>
+        <br><p class="text-center following-userabout"><%= user.about %></p><br>
         <%= render'followbtn', user: user %>
       </div>
     </div>
@@ -19,7 +19,7 @@
 <% end %>
 
 <div class="modal fade" id="postmodal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
     </div>
   </div>
