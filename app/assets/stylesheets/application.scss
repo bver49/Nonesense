@@ -77,13 +77,12 @@ html *{
 }
 /* Reset end */
 
-.ui.modal{
-  z-index:1060;
-  top:20%;
-}
-
 .ui.button{
   margin-top:10px;
+}
+
+.modal-header{
+  background:rgb(242,242,242);
 }
 
 /* Top */
@@ -107,6 +106,9 @@ html *{
   display: none;
 }
 
+#mailboxicon{
+  position: relative;
+}
 
 /* Side */
 #logo{
@@ -150,7 +152,7 @@ html *{
 }
 
 /* notify */
-#notification {
+#notification{
   position: relative;
 }
 
@@ -195,6 +197,20 @@ html *{
   font-size: 12px;
   border-top: 1px solid #dddddd;
 }
+
+.iconcount{
+  background-color: #fa3e3e;
+  border-radius: 2px;
+  color: white;
+
+  padding: 1px 3px;
+  font-size: 10px;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 
 @media screen and (max-width:768px){
   .topmenu{

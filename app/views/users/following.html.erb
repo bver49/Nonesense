@@ -3,7 +3,7 @@
     <div class="col-md-4 col-sm-4" id="user-<%= user.id %>" style="margin-top:25px;">
       <div class="following">
         <div class="following-posts">
-          <% user.mypost do |post| %>
+          <% user.mypost.each do |post| %>
             <div class="following-post" data-toggle="modal" data-target="#postmodal" data-id="<%= post.id %>">
               <%= image_tag post.image.url(:post) , :class => 'following-postimg' %>
             </div>

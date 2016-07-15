@@ -2,12 +2,20 @@
   <% if current_user %>
     <li><%= link_to image_tag('menu/logout.png'),logout_path,method: :delete  %></li>
       <li id="mailboxicon">
-        <%= link_to image_tag('menu/mailbox.png', :id => 'mailbox'),messages_path %>
-        <%= link_to image_tag('menu/mailboxhover.png', :id => 'mailboxhover'),messages_path %>
+        <%= link_to messages_path do %>
+          <%= image_tag 'menu/mailbox.png', :id => 'mailbox' %>
+          <%= image_tag 'menu/mailboxhover.png', :id => 'mailboxhover' %>
+        <% end %>
+        <% if current_user.msgcount > 0 %>
+          <p class="iconcount"><%= current_user.msgcount %></p>
+        <% end %>
       </li>
       <li id="notification">
-        <div id ='notificationLink'>
+        <div id ='notificationLink' data-id="<%= current_user.id %>">
           <%= image_tag('menu/notify.png') %>
+          <% if current_user.notifycount > 0 %>
+            <p class="iconcount" id="notificationcount"><%= current_user.notifycount %></p>
+          <% end %>
         </div>
         <div id="notificationContainer">
           <div id="notificationTitle">通知</div>
@@ -71,6 +79,18 @@
     });
     $('#notifypostmodal').on('hidden.bs.modal', function () {
       $('#notifypostmodal .modal-content').empty();
+    });
+
+    /* clear notify count */
+    $('#notificationLink').on('click',function(){
+      var ajaxurl = '/clearnotify/' + this.getAttribute("data-id");
+      $.ajax({
+        url:ajaxurl,
+        type: 'POST',
+        success: function(response) {
+          $('#notificationcount').remove();
+        }
+      });
     });
   });
 </script>

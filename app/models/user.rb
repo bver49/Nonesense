@@ -36,4 +36,12 @@ class User < ActiveRecord::Base
     def mypost
       @post=Post.where(user_id: id).order("created_at desc")
     end
+
+    def notifycount
+      @number=Message.where("receiver_id = ? AND types != ? AND status = ?",id,'0','0').count
+    end
+
+    def msgcount
+      @number=Message.where("receiver_id = ? AND types = ? AND status = ?",id,'0','0').count
+    end
 end

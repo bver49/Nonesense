@@ -38,6 +38,16 @@ class MessagesController < ApplicationController
     @notice = Message.where("receiver_id = ? AND types != ?",current_user.id,'0').order("created_at desc")
   end
 
+  def clearnotify
+    @notify = Message.where("receiver_id = ? AND types != ? AND status = ?",params[:id],'0','0')
+    @notify.each do |n|
+      n.status=1
+      n.save
+    end
+    respond_to do |format|
+      format.any { render :text => "Clear" }
+    end
+  end
   private
   def find_msg
     @msg=Message.find(params[:id])
