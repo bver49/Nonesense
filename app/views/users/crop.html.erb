@@ -11,8 +11,10 @@
 					<% %w[x y w h].each do |attr| %>
 						<%= f.hidden_field "crop_#{attr}" %><br>
 					<% end %>
-					<%= f.submit '裁切' , :class => 'ui black basic button', :id =>'crop-btn' %>
-					<%= link_to '取消', user_path(@user.id), :class => 'ui black basic button' %>
+					<div style="text-align:center;">
+						<%= f.submit '裁切' , :class => 'ui black basic button', :id =>'crop-btn' %>
+						<%= link_to '取消', user_path(@user.id), :class => 'ui black basic button' %>
+					</div>
 				</div>
 			<% end %>
 		</div>
