@@ -21,40 +21,36 @@
   text-align: center;
 }
 
-.btnbar{
-  text-align: center;
-}
-
-.following{
+.usercard{
   border:1px solid gray;
   padding:15px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 20px 0 rgba(0, 0, 0, 0.19);
   min-height:350px;
 }
 
-.following-avatar{
+.usercard-avatar{
   display:block;
   width:30%;
   margin:10px auto;
   border-radius:50%;
 }
 
-.following-posts{
+.usercard-posts{
   width:100%;
   font-size:0px;
 }
 
-.following-post{
+.usercard-post{
   display:inline-block;
   width:25%;
   padding:5px;
 }
 
-.following-postimg{
+.usercard-postimg{
   width:100%;
 }
 
-.following-userabout{
+.usercard-about{
   line-height:20px;
   width:90%;
   margin:10px auto 0 auto;

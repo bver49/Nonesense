@@ -1,10 +1,10 @@
 <div class="topmenu">
   <% if current_user %>
     <li><%= link_to image_tag('menu/logout.png'),logout_path,method: :delete  %></li>
-      <li id="mailboxicon">
+      <li id="mailbox">
         <%= link_to messages_path do %>
-          <%= image_tag 'menu/mailbox.png', :id => 'mailbox' %>
-          <%= image_tag 'menu/mailboxhover.png', :id => 'mailboxhover' %>
+          <%= image_tag 'menu/mailbox.png', :id => 'mailboxicon' %>
+          <%= image_tag 'menu/mailboxhover.png', :id => 'mailboxiconhover' %>
         <% end %>
         <% if current_user.msgcount > 0 %>
           <p class="iconcount"><%= current_user.msgcount %></p>
@@ -44,14 +44,14 @@
 </div>
 
 <script>
-  $('#mailboxicon')
+  $('#mailbox')
   .mouseover(function(){
-    $('#mailbox').hide();
-    $('#mailboxhover').show();
+    $('#mailboxicon').hide();
+    $('#mailboxiconhover').show();
   })
   .mouseout(function() {
-    $('#mailbox').show();
-    $('#mailboxhover').hide();
+    $('#mailboxicon').show();
+    $('#mailboxiconhover').hide();
   });
 
 

@@ -102,12 +102,12 @@ html *{
   width:30px;
 }
 
-#mailboxhover{
-  display: none;
+#mailbox{
+  position: relative;
 }
 
-#mailboxicon{
-  position: relative;
+#mailboxiconhover{
+  display: none;
 }
 
 /* Side */
@@ -211,6 +211,9 @@ html *{
   right: 0;
 }
 
+.btnbar{
+  text-align: center;
+}
 
 @media screen and (max-width:768px){
   .topmenu{

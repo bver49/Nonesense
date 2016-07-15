@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
     end
 
     def mypost
-      @post=Post.where(user_id: id).order("created_at desc")
+      @post=Post.where(user_id: id).order("created_at desc").limit(4)
     end
 
     def notifycount

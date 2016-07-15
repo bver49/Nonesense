@@ -1,20 +1,20 @@
 <% @user.each_slice(3) do |users| %>
   <% users.each do |user| %>
     <div class="col-md-4 col-sm-4" style="margin-top:25px;">
-      <div class="following">
-        <div class="following-posts">
-          <% user.mypost.limit(4).each do |post| %>
-            <div class="following-post" data-toggle="modal" data-target="#postmodal" data-id="<%= post.id %>">
-              <%= image_tag post.image.url(:post) , :class => 'following-postimg' %>
+      <div class="usercard">
+        <div class="usercard-posts">
+          <% user.mypost.each do |post| %>
+            <div class="usercard-post" data-toggle="modal" data-target="#postmodal" data-id="<%= post.id %>">
+              <%= image_tag post.image.url(:post) , :class => 'usercard-postimg' %>
             </div>
           <% end %>
         </div>
-        <%= link_to image_tag(user.avatar.url(:avatar) , :class => 'following-avatar'),user %>
-        <div class="text-center following-userabout">
+        <%= link_to image_tag(user.avatar.url(:avatar) , :class => 'usercard-avatar'),user %>
+        <div class="text-center usercard-about">
           <p style="font-weight:bold;"><%= link_to user.name,user %></p><br>
           <p class="text-left"><%= user.about %></p>
         </div>
-        <%= render'followbtn', user: user %>
+        <%= render'userbtn', user: user %>
       </div>
     </div>
   <% end %>
@@ -31,7 +31,7 @@
 <script type="text/javascript">
   /* ajax show */
   $(document).ready(function(){
-    $('.following-post').on('click',function(){
+    $('.usercard-post').on('click',function(){
       var ajaxurl = '/posts/' + this.getAttribute("data-id");
       $.ajax({
         url:ajaxurl,
