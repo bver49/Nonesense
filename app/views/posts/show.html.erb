@@ -44,6 +44,14 @@
         </div>
       <% end %>
     </div>
+    <div class="ui labeled button" tabindex="0">
+      <div class="ui button">
+        <i class="unhide icon"></i>Views
+      </div>
+      <span class="ui basic label">
+        <%= @post.view %>
+      </span>
+    </div>
     <% if current_user %>
         <% if current_user == @post.user %>
           <%= link_to '編輯', edit_post_path(@post) ,:class => "ui button" %>

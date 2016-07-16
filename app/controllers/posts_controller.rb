@@ -30,11 +30,12 @@ class PostsController < ApplicationController
     if current_user
       @userlike = @post.likes.find_by_user_id(current_user.id)
     end
-    @comments = @post.comments
 
-    @post.view +=1
-    @post.save
+    @comments = @post.comments
     
+    @post.view+=1
+    @post.save
+
     respond_to do |format|
       format.html  { render layout: false }
       format.js
