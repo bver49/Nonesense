@@ -3,7 +3,7 @@
   <% @post.each_slice(4) do |posts| %>
       <% posts.each do |post| %>
         <div class="col-lg-3 col-md-3 col-sm-3 grid-item ui special cards" id="post-<%= post.id %> post-card" data-id="<%= post.id %>">
-          <div class="card" style="margin:0px;">
+          <div class="card" style="margin:10px 12px;">
             <div class="blurring dimmable image">
               <div class="ui dimmer post-show" data-toggle="modal" data-target="#postmodal" data-id="<%= post.id %>">
                 <div class="content" style="font-size:10px;">
