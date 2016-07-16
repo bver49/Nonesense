@@ -20,8 +20,9 @@
   width:25%;
 }
 
-.ui.cards ~ .ui.cards,.ui.cards{
+.ui.cards ~ .ui.cards,.ui.cards>.card,.ui.cards{
   margin:0px;
+  margin-top:0px;
 }
 
 .col-md-3.grid-item{
