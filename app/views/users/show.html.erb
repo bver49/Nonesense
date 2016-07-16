@@ -10,9 +10,16 @@
   <div class="grid-sizer"></div>
   <% @user.mypost.each_slice(4) do |posts| %>
     <% posts.each do |post| %>
-      <div class="col-lg-3 col-md-3  grid-item" id="post-<%= post.id %>">
-        <div class="post-show" data-toggle="modal" data-target="#postmodal" data-id="<%= post.id %>">
-          <%=  image_tag post.image.url , :class =>'postimg' %>
+      <div class="col-lg-3 col-md-3 col-sm-3 grid-item" id="post-<%= post.id %>">
+        <div class="ui card">
+          <div class="image post-show" data-toggle="modal" data-target="#postmodal" data-id="<%= post.id %>">
+            <%=  image_tag post.image.url , :class =>'postimg' %>
+          </div>
+          <div class="content" style="padding:8px;font-size:10px;">
+              <i class="heart red icon"></i><%= post.likes.count %> Likes
+              &nbsp;<i class="unhide icon"></i><%= post.view %>
+              &nbsp;<i class="comment icon"></i><%= post.comments.count %> Comments
+          </div>
         </div>
       </div>
     <% end %>

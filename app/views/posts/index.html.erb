@@ -3,10 +3,22 @@
   <% @post.each_slice(4) do |posts| %>
       <% posts.each do |post| %>
         <div class="col-lg-3 col-md-3 col-sm-3 grid-item" id="post-<%= post.id %>">
-          <div class="post-show" data-toggle="modal" data-target="#postmodal" data-id="<%= post.id %>">
-            <%=  image_tag post.image.url , :class =>'postimg' %>
+          <div class="ui card">
+            <div class="content" style="padding:8px;">
+              <span class="authorname"><%=link_to post.user.name , post.user %></span>
+              <div class="right floated meta" style="font-size:10px;">
+                <i class="calendar icon"></i> <%= post.created_at.strftime("%Y/%m/%d") %>
+              </div>
+            </div>
+            <div class="image post-show" data-toggle="modal" data-target="#postmodal" data-id="<%= post.id %>">
+              <%=  image_tag post.image.url , :class =>'postimg' %>
+            </div>
+            <div class="content" style="padding:8px;font-size:10px;">
+                <i class="heart red icon"></i><%= post.likes.count %> Likes
+                &nbsp;&nbsp;<i class="unhide icon"></i><%= post.view %>
+                &nbsp;&nbsp;<i class="comment icon"></i><%= post.comments.count %> Comments
+            </div>
           </div>
-          <span class="authorname"><%=link_to post.user.name , post.user %></span>
         </div>
       <% end %>
   <% end %>

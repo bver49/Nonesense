@@ -2,17 +2,15 @@
   <% if current_user %>
     <li><%= link_to image_tag('menu/logout.png'),logout_path,method: :delete  %></li>
       <li id="mailbox">
-        <%= link_to messages_path do %>
-          <%= image_tag 'menu/mailbox.png', :id => 'mailboxicon' %>
-          <%= image_tag 'menu/mailboxhover.png', :id => 'mailboxiconhover' %>
-        <% end %>
+          <%= link_to image_tag('menu/mailbox.png',:id =>'mailboxicon'),messages_path %>
+          <%= link_to image_tag('menu/mailboxhover.png',:id =>'mailboxiconhover'),messages_path %>
         <% if current_user.msgcount > 0 %>
           <p class="iconcount"><%= current_user.msgcount %></p>
         <% end %>
       </li>
       <li id="notification">
         <div id ='notificationLink' data-id="<%= current_user.id %>">
-          <%= image_tag('menu/notify.png') %>
+          <%= image_tag 'menu/notify.png',:id => "notificationicon" %>
           <% if current_user.notifycount > 0 %>
             <p class="iconcount" id="notificationcount"><%= current_user.notifycount %></p>
           <% end %>

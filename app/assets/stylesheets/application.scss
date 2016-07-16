@@ -110,6 +110,11 @@ html *{
   display: none;
 }
 
+#mailboxicon,#mailboxiconhover,#notificationicon{
+  width:35px;
+  height: 35px;
+}
+
 /* Side */
 #logo{
   margin:20px auto;
@@ -226,6 +231,10 @@ html *{
 
   #notificationContainer{
     margin-left:-180px;
+  }
+
+  #logo{
+    display:block;
   }
 
   #menu-mobile{
