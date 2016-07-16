@@ -20,6 +20,10 @@
   width:25%;
 }
 
+.ui.cards ~ .ui.cards,.ui.cards{
+  margin:0px;
+}
+
 .col-md-3.grid-item{
   padding-left:10px;
   padding-right:10px;
