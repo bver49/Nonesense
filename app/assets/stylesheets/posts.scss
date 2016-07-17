@@ -12,7 +12,9 @@
 }
 
 .authorname a,.authorname a:hover{
-  color:white;
+  padding-top:5px;
+  display: block;
+  color:black;
   font-weight: bold;
 }
 
@@ -21,8 +23,8 @@
 }
 
 .col-sm-3.grid-item, .col-md-3.grid-item, .col-lg-3.grid-item{
-  padding-left:0px;
-  padding-right:0px;
+  padding-left:10px;
+  padding-right:10px;
 }
 
 /* single post */

@@ -85,6 +85,17 @@ html *{
   background:rgb(242,242,242);
 }
 
+.ui.cards ~ .ui.cards,.ui.cards > .card,.ui.cards{
+  margin:0px;
+  margin-top:0px;
+}
+.ui.cards > .card{
+  box-shadow:none;
+}
+.ui.cards ~ .ui.cards, .ui.cards > .card, .ui.cards{
+  margin-top:10px;
+}
+
 /* Top */
 .topmenu{
   width:100%;
