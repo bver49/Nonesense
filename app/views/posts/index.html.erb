@@ -17,8 +17,8 @@
               </div>
               <%= image_tag post.image.url , :class =>'postimg' %>
             </div>
+            <span class="authorname"><%=link_to post.user.name , post.user %></span>
           </div>
-          <span class="authorname"><%=link_to post.user.name , post.user %></span>
         </div>
       <% end %>
   <% end %>
