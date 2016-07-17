@@ -11,10 +11,10 @@
   <% @user.mypost.each_slice(4) do |posts| %>
     <% posts.each do |post| %>
       <div class="col-lg-3 col-md-3 col-sm-3 grid-item ui special cards" id="post-<%= post.id %>" data-id="<%= post.id %>">
-        <div class="card" style="margin:10px 12px;">
+        <div class="card" style="margin:10px 10px;">
           <div class="blurring dimmable image">
             <div class="ui dimmer post-show" data-toggle="modal" data-target="#postmodal" data-id="<%= post.id %>">
-              <div class="content" style="font-size:10px;">
+              <div class="content" style="font-size:0.9em;">
                 <div class="center">
                   <span class="authorname"><%=link_to post.user.name , post.user %></span><br><br>
                   <i class="calendar icon"></i> <%= post.created_at.strftime("%Y/%m/%d") %><br><br>
