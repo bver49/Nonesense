@@ -1,4 +1,4 @@
-<div class="navbar" id="menu-mobile">
+<div class="navbar">
   <div class="container-fluid" style="padding-top:0px;padding-bottom:0px;">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -38,38 +38,4 @@
     </div>
   </div>
 </div>
-
 <%= link_to image_tag('menu/logo.png', :id => "logo" ),root_path %>
-
-<div id="menu-desktop">
-  <ul class="sidemenu">
-    <li class="biglink"><%= link_to '動態實況',posts_path %></li>
-    <hr>
-    <li class="biglink"><%= link_to '找設計師',users_path %></li>
-    <hr>
-    <% if current_user  %>
-      <li class="biglink"><%= link_to current_user.name , current_user%></li>
-      <% if current_user.role > 0  %>
-        <hr>
-        <li class="slink"><%= link_to '發文',new_post_path %></li>
-        <li class="slink"><%= link_to '我的貼文', current_user %></li>
-        <li class="slink"><%= link_to '資料夾',myfolder_path(current_user) %></li>
-        <li class="slink"><%= link_to '追蹤的設計師',following_path(current_user)  %></li>
-        <% if current_user.role == 2 %>
-          <li class="slink"><%= link_to '管理用戶',adminuser_path %></li>
-          <li class="slink"><%= link_to '管理文章',adminpost_path %></li>
-        <% end %>
-      <% else %>
-        <li class="slink"><%= link_to '追蹤的設計師',following_path(current_user)  %></li>
-      <% end %>
-    <% else %>
-      <li class="slink"><%= link_to '註冊', signup_path %></li>
-    <% end %>
-    <% if @show %>
-      <li class="biglink"><%= link_to @user.name , @user %></li>
-      <hr>
-      <li class="slink"><%= link_to '資料夾' , myfolder_path(@user.id) %></li>
-      <li class="slink"><%= link_to '追蹤的設計師' , following_path(@user.id) %></li>
-    <% end %>
-  </ul>
-</div>

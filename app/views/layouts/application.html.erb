@@ -18,15 +18,18 @@
   <% end %>
   <div class="container" style="width:95%;">
     <div class="row">
-      <div class="col-lg-2 col-md-2">
-        <%= render 'layouts/menu' %>
+      <div id="menu-desktop">
+        <%= render 'layouts/desktopmenu' %>
       </div>
-      <div class="col-lg-10 col-md-10" style="padding-bottom:200px;">
+      <div id="menu-mobile">
+        <%= render 'layouts/mobilemenu' %>
+      </div>
+      <div class="col-md-10 col-sm-10 col-md-offset-2 col-sm-offset-2" style="padding-bottom:200px;">
         <%= render 'layouts/topmenu' %>
         <%= yield %>
       </div>
     </div>
   </div>
-
+  <i class="scrollToTop angle double up icon" style="font-size:48px;"></i>
 </body>
 </html>

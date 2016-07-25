@@ -159,6 +159,11 @@ a,a:hover{
   display:none;
 }
 
+#menu-desktop{
+  position:fixed;
+  width:16.667%;
+}
+
 .icon-bar{
   background-color:black;
 }
@@ -229,6 +234,15 @@ a,a:hover{
 
 .btnbar{
   text-align: center;
+}
+
+.scrollToTop{
+  cursor:pointer;
+	padding:10px;
+	text-align:center;
+	position:fixed;
+	bottom:25px;
+	right:10px;
 }
 
 @media screen and (max-width:768px){
