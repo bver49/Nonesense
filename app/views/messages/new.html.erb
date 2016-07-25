@@ -1,16 +1,16 @@
 <div class="col-md-8 col-md-offset-2">
 	<h1 class="text-center h1">回信</h1>
-	<%= form_for @msg, :html => {:class => "form"} do |f| %>
-		<div class="form-group">
+	<%= form_for @msg, :html => {:class => "ui form"} do |f| %>
+		<div class="field">
 			<%= f.label :title, '標題: ' %><br><br>
-			<%= f.text_field :title , :class =>"form-control" %>
+			<%= f.text_field :title  %>
 		</div>
 		<input type='hidden' value='<%= params[:r] %>' name='message[receiver_id]' />
-		<div class="form-group">
+		<div class="field">
 			<%= f.label :body, '內文: ' %><br><br>
-			<%= f.text_area :body , :class =>"form-control" %><br><br>
+			<%= f.text_area :body %><br><br>
 		</div>
-		<div class="form-group">
+		<div class="field">
 			<%= f.submit ' 傳送', :class =>"tiny ui basic black button" %>
 			<%= link_to '返回', :back , :class =>"tiny ui basic black button" %>
 		</div>

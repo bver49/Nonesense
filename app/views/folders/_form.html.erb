@@ -1,13 +1,13 @@
-<%= form_for Folder.new, :html => {:class => "form",:id => "folder-form"}  do |f| %>
-	<div class="form-group">
+<%= form_for Folder.new, :html => {:class => "ui form",:id => "folder-form"}  do |f| %>
+	<div class="field">
 		<%= f.label :title, '標題: ' %><br><br>
-		<%= f.text_field :title , :class =>"form-control" %>
+		<%= f.text_field :title %>
 	</div>
-	<div class="form-group">
+	<div class="field">
 		<%= f.label :about, '介紹: ' %><br><br>
-		<%= f.text_area :about , :class =>"form-control" %>
+		<%= f.text_area :about %>
 	</div>
-	<div class="form-group text-center">
+	<div class="field text-center">
 		<%= f.submit '傳送', :class =>"tiny ui black basic button", data: {confirm: "確定創立?" } %>
 		<div class="tiny ui black basic button" id="folder-cancelbtn">取消</div>
 	</div>

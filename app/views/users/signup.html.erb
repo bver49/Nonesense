@@ -8,30 +8,30 @@
     <% end %>
   </p>
   <% end %>
-  <%= form_for @user, :html => {:class => "form"} do |f| %>
-  <div class="form-group">
+  <%= form_for @user, :html => {:class => "ui form"} do |f| %>
+  <div class="field">
     <%= f.label :avatar, '大頭照' %>
-    <%= f.file_field :avatar,:class =>"form-control" %><br>
+    <%= f.file_field :avatar %>
   </div>
-  <div class="form-group">
+  <div class="field">
     <%= f.label :name, '用戶名' %>
-    <%= f.text_field :name, :class =>"form-control" %><br>
+    <%= f.text_field :name %>
   </div>
-  <div class="form-group">
+  <div class="field">
     <%= f.label :email, 'Email' %>
-    <%= f.text_field :email, :class =>"form-control" %><br>
+    <%= f.text_field :email %>
   </div>
-  <div class="form-group">
+  <div class="field">
     <%= f.label :password, '密碼' %>
-    <%= f.password_field :password, :class =>"form-control" %><br>
+    <%= f.password_field :password %>
   </div>
-  <div class="form-group">
+  <div class="field">
     <%= f.label :password_confirmation, '確認密碼' %>
-    <%= f.password_field :password_confirmation, :class =>"form-control" %><br>
+    <%= f.password_field :password_confirmation %>
   </div>
-  <div class="form-group">
+  <div class="field">
     <%= f.label :about, '個人簡介' %>
-    <%= f.text_area :about, :class =>"form-control"  %><br>
+    <%= f.text_area :about ,:col=>"50", :rows=>"4"%>
   </div>
   <%= f.submit '註冊', :class =>"tiny ui black basic button" %>
   <% end %>

@@ -36,7 +36,7 @@
  padding: 0;
  border: 0;
  font-size: 100%;
- font: inherit;
+ font-family:"微軟正黑體","Microsoft JhengHei","儷黑 Pro","LiHei Pro","標楷體","Arial","Helvetica Neue";
  vertical-align: baseline;
  text-decoration:none;
  }
@@ -72,13 +72,12 @@ a,a:hover{
   color:black;
   text-decoration:none;
 }
-html *{
-  font-family: Arial , "儷黑 Pro", "LiHei Pro", "微軟正黑體", "Microsoft JhengHei", "標楷體","Helvetica Neue","Arial";
-}
+
 /* Reset end */
 
 .ui.button{
   margin-top:10px;
+  font-family:"微軟正黑體","Microsoft JhengHei","儷黑 Pro","LiHei Pro","標楷體","Arial","Helvetica Neue";
 }
 
 .modal-header{

@@ -9,17 +9,17 @@
 				<h4 class="modal-title">寄信</h4>
 			</div>
 			<div class="modal-body">
-				<%= form_for Message.new, :html => {:class => "form"}, remote: true do |f| %>
-					<div class="form-group">
+				<%= form_for Message.new, :html => {:class => "ui form"}, remote: true do |f| %>
+					<div class="field">
 						<%= f.label :title, '標題: ' %><br><br>
-						<%= f.text_field :title , :class =>"form-control" %>
+						<%= f.text_field :title %>
 					</div>
 					<input type='hidden' value='<%= receiver.id %>' name='message[receiver_id]' />
-					<div class="form-group">
+					<div class="field">
 						<%= f.label :body, '內文: ' %><br><br>
-						<%= f.text_area :body , :class =>"form-control" %><br><br>
+						<%= f.text_area :body %><br><br>
 					</div>
-					<div class="form-group">
+					<div class="field">
 						<%= f.submit '傳送', :class =>"tiny ui black basic button", data: {confirm: "確定送出?" } %>
 					</div>
 				<% end %>
