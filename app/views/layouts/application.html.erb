@@ -24,7 +24,7 @@
       <div id="menu-mobile">
         <%= render 'layouts/mobilemenu' %>
       </div>
-      <div class="col-md-10 col-sm-10 col-md-offset-2 col-sm-offset-2" style="padding-bottom:200px;">
+      <div class="col-md-10 col-sm-10 col-md-offset-2 col-sm-offset-2" style="padding-top:50px;padding-bottom:200px;">
         <%= render 'layouts/topmenu' %>
         <%= yield %>
       </div>
@@ -40,8 +40,10 @@ $(document).ready(function(){
 	$(window).scroll(function(){
 		if ($(this).scrollTop() > 100) {
 			$('.scrollToTop').fadeIn();
+      $('.topmenu').css('opacity','0.8');
 		} else {
 			$('.scrollToTop').fadeOut();
+      $('.topmenu').css('opacity','1');
 		}
 	});
 
