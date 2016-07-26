@@ -11,7 +11,7 @@
 </head>
 <body>
   <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>">
+        <div class="alert alert-<%= key %>" style="margin-top:50px;">
           <%= value %>
           <button type="button" class="close" data-dismiss="alert">&times;</button>
         </div>
@@ -40,10 +40,10 @@ $(document).ready(function(){
 	$(window).scroll(function(){
 		if ($(this).scrollTop() > 100) {
 			$('.scrollToTop').fadeIn();
-      $('.topmenu').css('opacity','0.8');
+      $('.topmenu').css('background','rgba(255,255,255,0.8)');
 		} else {
 			$('.scrollToTop').fadeOut();
-      $('.topmenu').css('opacity','1');
+      $('.topmenu').css('opacity','rgba(255,255,255,1)');
 		}
 	});
 
