@@ -52,6 +52,7 @@ class UsersController < ApplicationController
     def show
       @show = 1;
       @user = User.find(params[:id])
+      @post = Post.includes(:user).where(user_id: @user.id).order("created_at DESC")
     end
 
     def edit
