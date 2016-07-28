@@ -1,16 +1,33 @@
 class UsersController < ApplicationController
     def index
+      @category=1
       if current_user
         if(params[:order]=='hot')
-          @user = User.where('id != ? AND role > ?', current_user.id,0).order("view DESC")
+          if(params.has_key?(:c))
+            @user = User.where('id != ? AND role > ? AND category LIKE ?', current_user.id,0,"%#{params[:c]}%").order("view DESC")
+          else
+            @user = User.where('id != ? AND role > ?', current_user.id,0).order("view DESC")
+          end
         else
-          @user = User.where('id != ? AND role > ?', current_user.id,0).order("created_at DESC")
+          if(params.has_key?(:c))
+            @user = User.where('id != ? AND role > ? AND category LIKE ?', current_user.id,0,"%#{params[:c]}%").order("created_at DESC")
+          else
+            @user = User.where('id != ? AND role > ?', current_user.id,0).order("created_at DESC")
+          end
         end
       else
         if(params[:order]=='hot')
-          @user = User.where('role > ?',0).order("view DESC")
+          if(params.has_key?(:c))
+            @user = User.where('role > ? AND category LIKE ?',0,"%#{params[:c]}%").order("view DESC")
+          else
+            @user = User.where('role > ?',0).order("view DESC")
+          end
         else
-          @user = User.where('role > ?',0).order("created_at DESC")
+          if(params.has_key?(:c))
+            @user = User.where('role > ? AND category LIKE ?',0,"%#{params[:c]}%").order("created_at DESC")
+          else
+            @user = User.where('role > ?',0).order("created_at DESC")
+          end
         end
       end
     end

@@ -1,6 +1,6 @@
 <div class="userorderbtn">
-  <%= link_to '最新' ,users_path,:id => "ordernew" %>
-  <%= link_to '熱門' ,users_path(:order => 'hot'),:id => "orderhot"%>
+  <%= link_to '最新' ,users_path(:c => params[:c]),:id => "ordernew" %>
+  <%= link_to '熱門' ,users_path(:order => 'hot',:c => params[:c]),:id => "orderhot"%>
 </div>
 <% @user.each_slice(3) do |users| %>
   <div class="row">

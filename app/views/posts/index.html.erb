@@ -45,7 +45,7 @@
     $('.special.cards .image').dimmer({
       on: 'hover'
     });
-    <% if current_user && current_user.logincount==1 && current_user.category == nil %>
+    <% if current_user && current_user.role > 0 && current_user.category == nil %>
       $("#categorymodal").modal("show");
     <% end %>
   });

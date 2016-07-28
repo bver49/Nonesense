@@ -31,28 +31,34 @@
         <%= f.password_field :password_confirmation, placeholder:"若不更新密碼則留空" %><br>
       </div>
       <div class="field">
-        <%= f.label :category,'你想交流的:'%>
+        <%= f.label :category,'你最擅長、作品最常出現的領域(可複選):'%>
         <div class="col-md-4 edituser-category">
+          工藝
           <%= image_tag 'user/A.png',:class =>"edituser-category-img" %>
           <%= f.check_box(:category, { :multiple => true }, 'A' ) %>
         </div>
         <div class="col-md-4 edituser-category">
+          攝影
           <%= image_tag 'user/B.png',:class =>"edituser-category-img" %>
           <%= f.check_box(:category, { :multiple => true }, 'B' ) %>
         </div>
         <div class="col-md-4 edituser-category">
+          插畫
           <%= image_tag 'user/C.png',:class =>"edituser-category-img" %>
           <%= f.check_box(:category, { :multiple => true }, 'C' ) %>
         </div><br>
         <div class="col-md-4 edituser-category">
+          油畫水彩
           <%= image_tag 'user/D.png',:class =>"edituser-category-img" %>
           <%= f.check_box(:category, { :multiple => true }, 'D' ) %>
         </div>
         <div class="col-md-4 edituser-category">
+          服裝
           <%= image_tag 'user/E.png',:class =>"edituser-category-img" %>
           <%= f.check_box(:category, { :multiple => true }, 'E' ) %>
         </div>
         <div class="col-md-4 edituser-category">
+          介面UI
           <%= image_tag 'user/F.png',:class =>"edituser-category-img" %>
           <%= f.check_box(:category, { :multiple => true }, 'F' ) %>
         </div><br>

@@ -4,6 +4,14 @@
     <hr>
     <li class="biglink"><%= link_to '找設計師',users_path %></li>
     <hr>
+    <% if @category %>
+      <li class="slink"><%= link_to '工藝',users_path(:c =>'A') %></li>
+      <li class="slink"><%= link_to '攝影',users_path(:c =>'B') %></li>
+      <li class="slink"><%= link_to '插畫',users_path(:c =>'C') %></li>
+      <li class="slink"><%= link_to '油畫水彩',users_path(:c =>'D') %></li>
+      <li class="slink"><%= link_to '服裝',users_path(:c =>'E') %></li>
+      <li class="slink"><%= link_to '介面UI',users_path(:c =>'F') %></li>
+    <% end %>
     <% if current_user  %>
       <li class="biglink"><%= link_to current_user.name , current_user%></li>
       <% if current_user.role > 0  %>
@@ -33,6 +41,6 @@
       <a href="#"><i class="instagram icon"></i></a>
     </li>
     <li class="slink" data-toggle="modal" data-target="#contract">
-      會員條款與隱私權政策
+      會員條款與著作權政策
     </li>
   </ul>
