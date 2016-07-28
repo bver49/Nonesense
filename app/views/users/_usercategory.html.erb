@@ -1,0 +1,42 @@
+<div class="modal fade" id="categorymodal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h1 class="text-center">請選擇你想交流的(可複選)</div>
+        <%= form_for current_user, :html => {:class => "ui form"} do |f| %>
+            <div class="user-category">
+              工藝
+              <%= image_tag 'user/A.png',:class =>"user-category-img" %>
+              <%= f.check_box(:category, { :multiple => true }, 'A' ) %>
+            </div>
+            <div class="user-category">
+              攝影
+              <%= image_tag 'user/B.png',:class =>"user-category-img" %>
+              <%= f.check_box(:category, { :multiple => true }, 'B' ) %>
+            </div>
+            <div class="user-category">
+              插畫
+              <%= image_tag 'user/C.png',:class =>"user-category-img" %>
+              <%= f.check_box(:category, { :multiple => true }, 'C' ) %>
+            </div>
+            <div class="user-category">
+              油畫水彩
+              <%= image_tag 'user/D.png',:class =>"user-category-img" %>
+              <%= f.check_box(:category, { :multiple => true }, 'D' ) %>
+            </div>
+            <div class="user-category">
+              服裝
+              <%= image_tag 'user/E.png',:class =>"user-category-img" %>
+              <%= f.check_box(:category, { :multiple => true }, 'E' ) %>
+            </div>
+            <div class="user-category">
+              介面UI
+              <%= image_tag 'user/F.png',:class =>"user-category-img" %>
+              <%= f.check_box(:category, { :multiple => true }, 'F' ) %>
+            </div>
+            <%= f.submit '送出', :class =>"tiny ui black basic button" ,:style =>"margin:20px auto;display:block;"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

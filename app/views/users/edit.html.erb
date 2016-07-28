@@ -31,9 +31,49 @@
         <%= f.password_field :password_confirmation, placeholder:"若不更新密碼則留空" %><br>
       </div>
       <div class="field">
+        <%= f.label :category,'你想交流的:'%>
+        <div class="col-md-4 edituser-category">
+          <%= image_tag 'user/A.png',:class =>"edituser-category-img" %>
+          <%= f.check_box(:category, { :multiple => true }, 'A' ) %>
+        </div>
+        <div class="col-md-4 edituser-category">
+          <%= image_tag 'user/B.png',:class =>"edituser-category-img" %>
+          <%= f.check_box(:category, { :multiple => true }, 'B' ) %>
+        </div>
+        <div class="col-md-4 edituser-category">
+          <%= image_tag 'user/C.png',:class =>"edituser-category-img" %>
+          <%= f.check_box(:category, { :multiple => true }, 'C' ) %>
+        </div><br>
+        <div class="col-md-4 edituser-category">
+          <%= image_tag 'user/D.png',:class =>"edituser-category-img" %>
+          <%= f.check_box(:category, { :multiple => true }, 'D' ) %>
+        </div>
+        <div class="col-md-4 edituser-category">
+          <%= image_tag 'user/E.png',:class =>"edituser-category-img" %>
+          <%= f.check_box(:category, { :multiple => true }, 'E' ) %>
+        </div>
+        <div class="col-md-4 edituser-category">
+          <%= image_tag 'user/F.png',:class =>"edituser-category-img" %>
+          <%= f.check_box(:category, { :multiple => true }, 'F' ) %>
+        </div><br>
+      </div>
+      <div class="field">
         <%= f.label :about, '個人簡介' %>
         <%= f.text_area :about %><br>
       </div>
       <%= f.submit '更新', :class =>"tiny ui black basic button" %>
   <% end %>
 </div>
+
+<script>
+$(document).ready(function(){
+  var category = "<%= current_user.category %>";
+  for(var i in category){
+    if(category[i]!="0"){
+      $("#user_category_"+category[i].toLowerCase()).click();
+    }
+  }
+  var width = $('.edituser-category-img').width();
+  $('.edituser-category-img').height(width);
+});
+</script>

@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
       avatar.recreate_versions! if crop_x.present?
     end
 
+    before_save do
+      self.category.gsub!(/[\[\]\"\, ]/,"") if self.category !=nil
+    end
+
     has_many :posts, dependent: :destroy
     has_many :comments, dependent: :destroy
     has_many :likes, dependent: :destroy

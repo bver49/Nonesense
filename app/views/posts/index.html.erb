@@ -10,6 +10,10 @@
   </div>
 </div>
 
+<% if current_user && current_user.logincount==1 %>
+  <%= render 'users/usercategory' %>
+<% end %>
+
 <script type="text/javascript">
 
   var grid = $('.grid').imagesLoaded( function() {
@@ -32,6 +36,7 @@
         }
       });
     });
+
     $('#postmodal').on('hidden.bs.modal', function () {
       console.log('hide');
       $('#postmodal .modal-content').empty();
@@ -40,6 +45,8 @@
     $('.special.cards .image').dimmer({
       on: 'hover'
     });
-
+    <% if current_user && current_user.logincount==1 && current_user.category == nil %>
+      $("#categorymodal").modal("show");
+    <% end %>
   });
 </script>

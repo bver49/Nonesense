@@ -50,7 +50,9 @@ class UsersController < ApplicationController
       if user && user.authenticate(params[:password])
         session[:user_id]=user.id
         flash[:success] = "登入成功"
-        redirect_to root_path
+        user.logincount+=1
+        user.save
+        redirect_to posts_path
       else
         flash[:success] = "登入失敗"
         redirect_to :login
@@ -76,7 +78,7 @@ class UsersController < ApplicationController
           render :crop
         else
           flash[:success] = "更新成功"
-          redirect_to user_path(@user)
+          redirect_to :back
         end
       else
         flash[:danger] = "更新失敗"
