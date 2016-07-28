@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Nonesense</title>
-  <meta content='<%= current_user ? current_user.id : "" %>' name='user-id'/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
@@ -31,27 +30,6 @@
     </div>
   </div>
   <i class="scrollToTop angle double up icon" style="font-size:48px;"></i>
+  <%= render 'users/contract' %>
 </body>
-<script>
-$(document).ready(function(){
-
-	$('.scrollToTop').hide();
-	//Check to see if the window is top if not then display button
-	$(window).scroll(function(){
-		if ($(this).scrollTop() > 100) {
-			$('.scrollToTop').fadeIn();
-      $('.topmenu').css('background','rgba(255,255,255,0.8)');
-		} else {
-			$('.scrollToTop').fadeOut();
-      $('.topmenu').css('background','rgba(255,255,255,1)');
-		}
-	});
-
-	//Click event to scroll to top
-	$('.scrollToTop').click(function(){
-		$('html, body').animate({scrollTop : 0},800);
-		return false;
-	});
-});
-</script>
 </html>

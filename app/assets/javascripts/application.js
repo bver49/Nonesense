@@ -19,3 +19,21 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+
+	$('.scrollToTop').hide();
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+      $('.topmenu').css('background','rgba(255,255,255,0.8)');
+		} else {
+			$('.scrollToTop').fadeOut();
+      $('.topmenu').css('background','rgba(255,255,255,1)');
+		}
+	});
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+});

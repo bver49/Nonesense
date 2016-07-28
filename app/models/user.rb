@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
     validates_presence_of :avatar , :message => "請上傳大頭照"
     validates_presence_of :name , :message => "請填寫名稱"
     validates_presence_of :about,:message => "請填寫自我介紹"
+    validates_acceptance_of :agreement,:message => "請勾選我同意"
 
     def follow(user_id)
       following_relationships.create(following_id: user_id)

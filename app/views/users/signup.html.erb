@@ -33,6 +33,10 @@
     <%= f.label :about, '個人簡介' %>
     <%= f.text_area :about ,:col=>"50", :rows=>"4" %>
   </div>
+  <div class="field">
+    <%= f.check_box :agreement %>
+    我同意<span data-toggle="modal" data-target="#contract" style="color:rgb(44,125,174);">會員條款與隱私權政策</span>
+  </div>
   <%= f.submit '註冊', :class =>"tiny ui black basic button" %>
   <% end %>
 </div>

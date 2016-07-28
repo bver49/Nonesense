@@ -28,4 +28,11 @@
       <li class="slink"><%= link_to '資料夾' , myfolder_path(@user.id) %></li>
       <li class="slink"><%= link_to '追蹤的設計師' , following_path(@user.id) %></li>
     <% end %>
+    <li class="slink" style="font-size:24px;">
+      <a href="#"><i class="facebook icon"></i></a>
+      <a href="#"><i class="instagram icon"></i></a>
+    </li>
+    <li class="slink" data-toggle="modal" data-target="#contract">
+      會員條款與隱私權政策
+    </li>
   </ul>

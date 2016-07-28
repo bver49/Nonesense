@@ -168,6 +168,8 @@ a,a:hover{
   z-index:1000;
   position:fixed;
   width:16.667%;
+  height:100%;
+  overflow-y:scroll;
 }
 
 .icon-bar{
@@ -253,6 +255,8 @@ a,a:hover{
 
 @media screen and (max-width:768px){
   .topmenu{
+    position:relative;
+    margin-bottom:20px;
     text-align: center;
   }
   .topmenu li{
