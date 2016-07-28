@@ -95,6 +95,7 @@ class UsersController < ApplicationController
     end
 
     def following
+      @show = 1;
       @follower=User.find(params[:id])
       @user = User.where(id:@follower.following).order("created_at desc")
     end

@@ -11,4 +11,8 @@ class ImageUploader < CarrierWave::Uploader::Base
     resize_to_limit(360,360)
   end
 
+  version :square do
+    resize_to_fill(480,480)
+  end
+
 end
