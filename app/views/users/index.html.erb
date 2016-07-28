@@ -1,29 +1,29 @@
-<% @user.each_slice(3) do |users| %>
-<div class="row">
-  <div class="userorderbtn">
-    <%= link_to '最新' ,users_path,:id => "ordernew" %>
-    <%= link_to '熱門' ,users_path(:order => 'hot'),:id => "orderhot"%>
-  </div>
-  <% users.each do |user| %>
-    <div class="col-md-4 col-sm-4" style="margin-top:25px;">
-      <div class="usercard">
-        <div class="usercard-posts">
-          <% user.mypost.each do |post| %>
-            <div class="usercard-post" data-toggle="modal" data-target="#postmodal" data-id="<%= post.id %>">
-              <%= image_tag post.image.url(:post) , :class => 'usercard-postimg' %>
-            </div>
-          <% end %>
-        </div>
-        <%= link_to image_tag(user.avatar.url(:avatar) , :class => 'usercard-avatar'),user %>
-        <div class="text-center usercard-about">
-          <p style="font-weight:bold;"><%= link_to user.name,user %></p><br>
-          <p class="text-left"><%= user.about %></p>
-        </div>
-        <%= render'userbtn', user: user %>
-      </div>
-    </div>
-  <% end %>
+<div class="userorderbtn">
+  <%= link_to '最新' ,users_path,:id => "ordernew" %>
+  <%= link_to '熱門' ,users_path(:order => 'hot'),:id => "orderhot"%>
 </div>
+<% @user.each_slice(3) do |users| %>
+  <div class="row">
+    <% users.each do |user| %>
+      <div class="col-md-4 col-sm-4" style="margin-top:25px;">
+        <div class="usercard">
+          <div class="usercard-posts">
+            <% user.mypost.each do |post| %>
+              <div class="usercard-post" data-toggle="modal" data-target="#postmodal" data-id="<%= post.id %>">
+                <%= image_tag post.image.url(:post) , :class => 'usercard-postimg' %>
+              </div>
+            <% end %>
+          </div>
+          <%= link_to image_tag(user.avatar.url(:avatar) , :class => 'usercard-avatar'),user %>
+          <div class="text-center usercard-about">
+            <p style="font-weight:bold;"><%= link_to user.name,user %></p><br>
+            <p class="text-left"><%= user.about %></p>
+          </div>
+          <%= render'userbtn', user: user %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 <% end %>
 
 <div class="modal fade" id="postmodal" tabindex="-1" role="dialog" aria-hidden="true">
