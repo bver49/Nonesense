@@ -54,11 +54,6 @@
       $('#postmodal .modal-content').empty();
     });
 
-    $('.row').imagesLoaded( function() {
-      var width =$("img.usercard-postimg").width();
-      $("img.usercard-postimg").height(width);
-    });
-
     <% if(params[:order]=='hot') %>
      $('#orderhot').css('border-bottom','1px solid black');
     <% else %>
