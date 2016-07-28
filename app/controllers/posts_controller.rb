@@ -32,9 +32,12 @@ class PostsController < ApplicationController
     end
 
     @comments = @post.comments
-    
+
     @post.view+=1
     @post.save
+
+    @post.user.view+=1
+    @post.user.save
 
     respond_to do |format|
       format.html  { render layout: false }

@@ -1,9 +1,17 @@
 class UsersController < ApplicationController
     def index
       if current_user
-        @user = User.where('id != ? AND role > ?', current_user.id,0)
+        if(params[:order]=='hot')
+          @user = User.where('id != ? AND role > ?', current_user.id,0).order("view DESC")
+        else
+          @user = User.where('id != ? AND role > ?', current_user.id,0).order("created_at DESC")
+        end
       else
-        @user = User.where('role > ?',0)
+        if(params[:order]=='hot')
+          @user = User.where('role > ?',0).order("view DESC")
+        else
+          @user = User.where('role > ?',0).order("created_at DESC")
+        end
       end
     end
 
@@ -52,6 +60,8 @@ class UsersController < ApplicationController
     def show
       @show = 1;
       @user = User.find(params[:id])
+      @user.view+=1
+      @user.save
       @post = Post.includes(:user).where(user_id: @user.id).order("created_at DESC")
     end
 

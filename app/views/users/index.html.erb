@@ -1,5 +1,9 @@
 <% @user.each_slice(3) do |users| %>
 <div class="row">
+  <div class="userorderbtn">
+    <%= link_to '最新' ,users_path,:id => "ordernew" %>
+    <%= link_to '熱門' ,users_path(:order => 'hot'),:id => "orderhot"%>
+  </div>
   <% users.each do |user| %>
     <div class="col-md-4 col-sm-4" style="margin-top:25px;">
       <div class="usercard">
@@ -44,7 +48,7 @@
         }
       });
     });
-    
+
     $('#postmodal').on('hidden.bs.modal', function () {
       console.log('hide');
       $('#postmodal .modal-content').empty();
@@ -54,5 +58,11 @@
       var width =$("img.usercard-postimg").width();
       $("img.usercard-postimg").height(width);
     });
+
+    <% if(params[:order]=='hot') %>
+     $('#orderhot').css('border-bottom','1px solid black');
+    <% else %>
+     $('#ordernew').css('border-bottom','1px solid black');
+    <% end %>
   });
 </script>
