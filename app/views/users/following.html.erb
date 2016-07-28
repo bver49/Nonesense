@@ -1,11 +1,11 @@
-<% @user.each_slice(3) do |users| %>
+<% @users.each_slice(3) do |users| %>
   <% users.each do |user| %>
     <div class="col-md-4 col-sm-4" id="user-<%= user.id %>" style="margin-top:25px;">
       <div class="usercard">
         <div class="usercard-posts">
           <% user.mypost.each do |post| %>
             <div class="usercard-post" data-toggle="modal" data-target="#postmodal" data-id="<%= post.id %>">
-              <%= image_tag post.image.url(:post) , :class => 'usercard-postimg' %>
+              <%= image_tag post.image.url(:square) , :class => 'usercard-postimg' %>
             </div>
           <% end %>
         </div>

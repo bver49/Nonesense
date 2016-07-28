@@ -7,6 +7,7 @@ class FoldersController < ApplicationController
     if @user.role == 0
       redirect_to :back
     end
+    @show=1
     @folder= Folder.where("user_id = ?",params[:id])
     @folderownerid = params[:id].to_i
   end
