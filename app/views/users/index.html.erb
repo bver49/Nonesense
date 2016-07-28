@@ -44,9 +44,15 @@
         }
       });
     });
+    
     $('#postmodal').on('hidden.bs.modal', function () {
       console.log('hide');
       $('#postmodal .modal-content').empty();
+    });
+
+    $('.row').imagesLoaded( function() {
+      var width =$("img.usercard-postimg").width();
+      $("img.usercard-postimg").height(width);
     });
   });
 </script>
