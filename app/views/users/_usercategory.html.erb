@@ -34,6 +34,11 @@
               <%= image_tag 'user/F.png',:class =>"user-category-img" %>
               <%= f.check_box(:category, { :multiple => true }, 'F' ) %>
             </div>
+            <div class="user-category">
+              動畫電繪
+              <%= image_tag 'user/F.png',:class =>"user-category-img" %>
+              <%= f.check_box(:category, { :multiple => true }, 'G' ) %>
+            </div>
             <%= f.submit '送出', :class =>"tiny ui black basic button" ,:style =>"margin:20px auto;display:block;"%>
         <% end %>
       </div>

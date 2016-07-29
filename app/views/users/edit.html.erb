@@ -32,35 +32,40 @@
       </div>
       <div class="field">
         <%= f.label :category,'你最擅長、作品最常出現的領域(可複選):'%>
-        <div class="col-md-4 edituser-category">
+        <div class="user-category">
           工藝
-          <%= image_tag 'user/A.png',:class =>"edituser-category-img" %>
+          <%= image_tag 'user/A.png',:class =>"user-category-img" %>
           <%= f.check_box(:category, { :multiple => true }, 'A' ) %>
         </div>
-        <div class="col-md-4 edituser-category">
+        <div class="user-category">
           攝影
-          <%= image_tag 'user/B.png',:class =>"edituser-category-img" %>
+          <%= image_tag 'user/B.png',:class =>"user-category-img" %>
           <%= f.check_box(:category, { :multiple => true }, 'B' ) %>
         </div>
-        <div class="col-md-4 edituser-category">
+        <div class="user-category">
           插畫
-          <%= image_tag 'user/C.png',:class =>"edituser-category-img" %>
+          <%= image_tag 'user/C.png',:class =>"user-category-img" %>
           <%= f.check_box(:category, { :multiple => true }, 'C' ) %>
         </div><br>
-        <div class="col-md-4 edituser-category">
+        <div class="user-category">
           油畫水彩
-          <%= image_tag 'user/D.png',:class =>"edituser-category-img" %>
+          <%= image_tag 'user/D.png',:class =>"user-category-img" %>
           <%= f.check_box(:category, { :multiple => true }, 'D' ) %>
         </div>
-        <div class="col-md-4 edituser-category">
+        <div class="user-category">
           服裝
-          <%= image_tag 'user/E.png',:class =>"edituser-category-img" %>
+          <%= image_tag 'user/E.png',:class =>"user-category-img" %>
           <%= f.check_box(:category, { :multiple => true }, 'E' ) %>
         </div>
-        <div class="col-md-4 edituser-category">
+        <div class="user-category">
           介面UI
-          <%= image_tag 'user/F.png',:class =>"edituser-category-img" %>
+          <%= image_tag 'user/F.png',:class =>"user-category-img" %>
           <%= f.check_box(:category, { :multiple => true }, 'F' ) %>
+        </div>
+        <div class="user-category">
+          動畫電繪
+          <%= image_tag 'user/F.png',:class =>"user-category-img" %>
+          <%= f.check_box(:category, { :multiple => true }, 'G' ) %>
         </div><br>
       </div>
       <div class="field">
