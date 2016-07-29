@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
   def index
     if current_user
+      @controlpanel=1
       @post = Post.includes(:user).where(user_id: current_user.following).order("created_at DESC")
     else
       @post = Post.includes(:user).all.order("created_at DESC")

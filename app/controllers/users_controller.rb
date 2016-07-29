@@ -77,7 +77,8 @@ class UsersController < ApplicationController
     end
 
     def show
-      @show = 1;
+      @controlpanel=0
+      @show = 1
       @user = User.find(params[:id])
       @user.view+=1
       @user.save
