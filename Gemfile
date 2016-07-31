@@ -25,6 +25,7 @@ gem 'carrierwave'
 gem 'bootstrap-sass'
 gem 'rmagick'
 gem 'jcrop-rails-v2'
+gem 'tinymce-rails', git: 'https://github.com/ChouAndy/tinymce-rails.git'
 
 gem 'therubyracer', platforms: :ruby
 group :production do

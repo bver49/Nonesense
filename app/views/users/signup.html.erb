@@ -31,7 +31,7 @@
   </div>
   <div class="field">
     <%= f.label :about, '個人簡介' %>
-    <%= f.text_area :about ,:col=>"50", :rows=>"4" %>
+    <%= f.text_area :about , class: 'tinymce' %>
   </div>
   <div class="field">
     <%= f.check_box :agreement %>
@@ -40,3 +40,15 @@
   <%= f.submit '註冊', :class =>"tiny ui black basic button" %>
   <% end %>
 </div>
+
+<script>
+	$(document).ready(function () {
+    	tinyMCE.remove();
+    	tinyMCE.init({
+			selector: "textarea.tinymce",
+			toolbar:false,
+			plugins:"advlist,autolink,lists,link,charmap,hr,visualchars,insertdatetime,nonbreaking,textcolor,colorpicker",
+			menubar: false
+		});
+	});
+</script>

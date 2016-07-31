@@ -2,7 +2,7 @@
   <%= image_tag @user.avatar.url(:avatar),:class => 'user-avatar'%>
   <p class="user-about">
     <%= @user.name %><br>
-    <%= @user.about %>
+    <%= raw @user.about %>
   </p>
   <%= render'userbtn', user: @user %>
 </div>

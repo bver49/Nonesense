@@ -1,0 +1,26 @@
+toolbar:
+  - fullscreen | newdocument | undo redo | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | table | link unlink image media | emoticons | hr nonbreaking
+  - formatselect | fontsizeselect | bold italic underline strikethrough | subscript superscript | forecolor backcolor | removeformat | code preview
+plugins:
+  - advlist
+  - autolink
+  - lists
+  - link
+  - image
+  - charmap
+  - preview
+  - hr
+  - anchor
+  - searchreplace
+  - visualblocks
+  - visualchars
+  - code
+  - fullscreen
+  - insertdatetime
+  - media
+  - nonbreaking
+  - table
+  - contextmenu
+  - textcolor
+  - colorpicker
+menubar: false

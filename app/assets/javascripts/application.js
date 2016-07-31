@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.Jcrop
+//= require tinymce-jquery
 //= require masonry
 //= require semantic-ui
 //= require imageloaded

@@ -70,7 +70,7 @@
       </div>
       <div class="field">
         <%= f.label :about, '個人簡介' %>
-        <%= f.text_area :about %><br>
+        <%= f.text_area :about , class: 'tinymce' %><br>
       </div>
       <%= f.submit '更新', :class =>"tiny ui black basic button" %>
   <% end %>
@@ -86,5 +86,13 @@ $(document).ready(function(){
   }
   var width = $('.edituser-category-img').width();
   $('.edituser-category-img').height(width);
+
+  tinyMCE.remove();
+  tinyMCE.init({
+  	selector: "textarea.tinymce",
+    toolbar: ["undo redo | alignleft aligncenter alignright alignjustify | bullist numlist outdent| link unlink | hr","fontsizeselect | bold italic underline strikethrough | subscript superscript | forecolor | removeformat | preview"],
+    plugins: "advlist,autolink,lists,link,charmap,preview,hr,anchor,visualblocks,visualchars,insertdatetime,nonbreaking,contextmenu,textcolor,colorpicker",
+  	menubar: false
+  });
 });
 </script>

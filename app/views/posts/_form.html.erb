@@ -17,7 +17,7 @@
 	</div>
 	<div class="field">
 		<%= f.label :content, '內文: ' %>
-		<%= f.text_area :content %><br><br>
+		<%= f.text_area :content, class: 'tinymce' %><br><br>
 	</div>
 	<div class="field">
 		<%= f.label :tag_list, '標籤: ' %>
@@ -33,3 +33,17 @@
 		<%= link_to '返回', :back , :class =>"tiny ui black basic button" %>
 	</div>
 <% end %>
+
+<script>
+
+	$(document).ready(function () {
+    	tinyMCE.remove();
+    	tinyMCE.init({
+			selector: "textarea.tinymce",
+			toolbar: ["undo redo | alignleft aligncenter alignright alignjustify | bullist numlist outdent| link unlink | hr","fontsizeselect | bold italic underline strikethrough | subscript superscript | forecolor | removeformat | preview"],
+			plugins: "advlist,autolink,lists,link,charmap,preview,hr,anchor,visualblocks,visualchars,insertdatetime,nonbreaking,contextmenu,textcolor,colorpicker",
+			menubar: false
+		});
+	});
+
+</script>

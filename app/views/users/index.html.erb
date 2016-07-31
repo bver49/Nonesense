@@ -17,7 +17,7 @@
           <%= link_to image_tag(user.avatar.url(:avatar) , :class => 'usercard-avatar'),user %>
           <div class="text-center usercard-about">
             <p style="font-weight:bold;"><%= link_to user.name,user %></p><br>
-            <p class="text-left" style="overflow:scroll;"><%= user.about %></p>
+            <p class="text-left" style="overflow:scroll;"><%= raw user.about %></p>
           </div>
           <%= render'userbtn', user: user %>
         </div>
