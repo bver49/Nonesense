@@ -16,7 +16,7 @@
           </div>
           <%= link_to image_tag(user.avatar.url(:avatar) , :class => 'usercard-avatar'),user %>
           <div class="text-center usercard-about">
-            <p style="font-weight:bold;"><%= link_to user.name,user %></p><br>
+            <p style="font-weight:bold;text-align:center;"><%= link_to user.name,user %></p><br>
             <p class="text-left"><%= raw user.about %></p>
           </div>
           <%= render'userbtn', user: user %>
