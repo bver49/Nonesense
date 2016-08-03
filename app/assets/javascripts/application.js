@@ -15,6 +15,7 @@
 //= require jquery.Jcrop
 //= require tinymce-jquery
 //= require masonry
+//= require toastr
 //= require semantic-ui
 //= require imageloaded
 //= require bootstrap-sprockets
@@ -22,6 +23,15 @@
 //= require_tree .
 
 $(document).ready(function(){
+	/* toastr option */
+	toastr.options = {
+	  "closeButton": true,
+	  "positionClass": "toast-top-right",
+	  "showDuration": "0",
+	  "hideDuration": "1000",
+	  "timeOut": "3000",
+	  "extendedTimeOut": "1000"
+	}
 
 	$('.scrollToTop').hide();
 	$(window).scroll(function(){

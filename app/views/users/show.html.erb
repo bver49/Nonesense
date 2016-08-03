@@ -1,9 +1,9 @@
 <div class="user-meta">
   <%= image_tag @user.avatar.url(:avatar),:class => 'user-avatar'%>
-  <p class="user-about">
-    <%= @user.name %><br>
+  <div class="user-about">
+    <%= @user.name %><br><br>
     <%= raw @user.about %>
-  </p>
+  </div>
   <%= render'userbtn', user: @user %>
 </div>
 <div class="grid">

@@ -5,13 +5,11 @@ class CommentsController < ApplicationController
   	@comment = @post.comments.new(comment_params)
   	@comment.user_id = current_user.id
   	@comment.save!
-
     if @post.user_id != current_user.id
       @notice=Message.new
       @notice.notify_comment(current_user.name,@post)
     end
     respond_to do |format|
-  		format.html { redirect_to @post}
   		format.js
   	end
   end
@@ -20,7 +18,6 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to @post}
       format.js
     end
   end

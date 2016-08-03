@@ -122,11 +122,11 @@ a,a:hover{
   position: relative;
 }
 
-#mailboxiconhover{
+#mailboxiconhover,#drawiconhover{
   display: none;
 }
 
-#mailboxicon,#mailboxiconhover,#notificationicon{
+#mailboxicon,#mailboxiconhover,#notificationicon,#drawiconhover,#drawicon{
   width:35px;
   height: 35px;
 }

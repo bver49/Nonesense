@@ -42,7 +42,6 @@ class FoldersController < ApplicationController
     @post.folder_id = params[:folder_id]
     @post.save
     respond_to do |format|
-      format.html { redirect_to folders_path }
       format.js
     end
   end
@@ -52,7 +51,6 @@ class FoldersController < ApplicationController
     @post.folder_id = 0
     @post.save
     respond_to do |format|
-      format.html { redirect_to folder_path }
       format.js
     end
   end
@@ -65,7 +63,6 @@ class FoldersController < ApplicationController
     end
     @folder.destroy
     respond_to do |format|
-      format.html { redirect_to folder_path }
       format.js
     end
   end

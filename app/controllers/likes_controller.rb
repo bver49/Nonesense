@@ -13,7 +13,6 @@ class LikesController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to @post}
       format.js
     end
   end
@@ -22,7 +21,6 @@ class LikesController < ApplicationController
     @like=Like.where(user_id: current_user.id,post_id: params[:id]).first
     @like.destroy
     respond_to do |format|
-      format.html { redirect_to :back }
       format.js
     end
   end

@@ -1,9 +1,9 @@
 $('#message-<%= @msg.receiver_id %> .close').click();
-if('<%= @msg.title %>' =='' ||'<%= @msg.body %>'=='' ){
-  $('body').prepend('<div class="alert alert-danger">傳送失敗<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+if($('#message-<%= @msg.receiver_id %> #message_body').val()==""||$('#message-<%= @msg.receiver_id %> #message_title').val()==""){
+  toastr.error("傳送失敗");
 }
 else{
-  $('body').prepend('<div class="alert alert-success">傳送成功<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+  toastr.success("傳送成功");
 }
 $('#message-<%= @msg.receiver_id %> #message_body').val("");
 $('#message-<%= @msg.receiver_id %> #message_title').val("");

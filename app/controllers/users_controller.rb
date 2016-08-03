@@ -66,7 +66,6 @@ class UsersController < ApplicationController
       user =User.find_by_email(params[:email])
       if user && user.authenticate(params[:password])
         session[:user_id]=user.id
-        flash[:success] = "登入成功"
         user.logincount+=1
         user.save
         redirect_to posts_path
@@ -118,6 +117,27 @@ class UsersController < ApplicationController
       @users = User.where(id:@user.following).order("created_at desc")
     end
 
+    def draw
+      @c = params[:c]
+      @sql="id != ? AND ("
+      @c.each_char do |c|
+        @sql=@sql+' category LIKE '+"'%"+c+"%' "
+        if(c != @c[-1, 1])
+          @sql+="OR"
+        end
+      end
+      @sql+=" )"
+      @user=User.where(@sql,current_user.id)
+      @id=[]
+      @user.each do |u|
+        @id.push(u.id)
+      end
+      @post=Post.where('user_id = ?',@id).order("RANDOM()").limit(3)
+      respond_to do |format|
+        format.html  { render layout: false }
+      end
+    end
+
     #for admin
     def adminuser
       if current_user.role != 2
@@ -137,7 +157,6 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       @user.destroy
       respond_to do |format|
-        format.html { redirect_to root_path }
         format.js
       end
     end
@@ -147,7 +166,6 @@ class UsersController < ApplicationController
       @user.role = 1
       @user.save
       respond_to do |format|
-        format.html { redirect_to root_path }
         format.js
       end
     end

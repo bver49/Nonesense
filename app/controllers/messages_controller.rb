@@ -11,8 +11,6 @@ class MessagesController < ApplicationController
     @msg.sender_id = current_user.id
     @msg.save
     respond_to do |format|
-      flash[:success] = "發表成功"
-      format.html { redirect_to messages_path }
       format.js
     end
   end
@@ -20,7 +18,6 @@ class MessagesController < ApplicationController
   def destroy
     @msg.destroy
     respond_to do |format|
-      format.html { redirect_to messages_path }
       format.js
     end
   end

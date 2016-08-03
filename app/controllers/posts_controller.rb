@@ -20,10 +20,14 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     if @post.save
       flash[:success] = "發表成功"
-      redirect_to user_path(current_user)
+      respond_to do |format|
+        format.html  { redirect_to user_path(current_user) }
+      end
     else
       flash[:danger] = "發表失敗"
-      render 'new'
+      respond_to do |format|
+        format.html  { render 'new' }
+      end
     end
   end
 
@@ -42,7 +46,6 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html  { render layout: false }
-      format.js
     end
   end
 

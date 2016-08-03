@@ -1,0 +1,62 @@
+<div class="modal fade" id="drawmodal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body" id="stepone" style="padding:20px 50px;">
+        <p>歡迎使用Nonesense交流功能:</p><br><br>
+        <p style="line-height:28px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您將可以跟不同領域的設計師/插畫家/藝術家進行互動，讓您擴展人脈，與其他設計師合作、共創、接案。目前將以選擇自己喜愛的作品做配對，讓您直接跟您喜歡的設計師/插畫家/藝術家聊天，每次上線都會有不同的驚喜喔!</p><br><br>
+        <div class="text-center">
+          <div class="ui small black basic button" id="join" style="margin-right:50px;">參加</div>
+          <div class="ui small black basic button" data-dismiss="modal">不參加</div>
+        </div>
+      </div>
+      <div class="modal-body" id="steptwo" style="display:none;">
+        <h1 class="text-center">請選擇你想交流的(可複選)</h1>
+        <div style="display:block;width:100%;">
+          <div class="user-category">
+            工藝
+            <%= image_tag 'user/A.png',:class =>"user-category-img" %>
+            <input type="checkbox" name="A">
+          </div>
+          <div class="user-category">
+            攝影
+            <%= image_tag 'user/B.png',:class =>"user-category-img" %>
+            <input type="checkbox" name="B">
+          </div>
+          <div class="user-category">
+            插畫
+            <%= image_tag 'user/C.png',:class =>"user-category-img" %>
+            <input type="checkbox" name="C">
+          </div>
+          <div class="user-category">
+            油畫水彩
+            <%= image_tag 'user/D.png',:class =>"user-category-img" %>
+            <input type="checkbox" name="D">
+          </div>
+          <div class="user-category">
+            服裝
+            <%= image_tag 'user/E.png',:class =>"user-category-img" %>
+            <input type="checkbox" name="E">
+          </div>
+          <div class="user-category">
+            介面UI
+            <%= image_tag 'user/F.png',:class =>"user-category-img" %>
+            <input type="checkbox" name="F">
+          </div>
+          <div class="user-category">
+            動畫電繪
+            <%= image_tag 'user/F.png',:class =>"user-category-img" %>
+            <input type="checkbox" name="G">
+          </div>
+          <div class="text-center">
+            <div class="ui small black basic button" id="submit" style="margin-right:50px;">送出</div>
+            <div class="ui small black basic button" id="close" data-dismiss="modal">取消</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body" id="stepthree" style="display:none;height:600px;">
+      </div>
+      <div class="modal-body" id="stepfour" style="display:none;height:300px;">
+      </div>
+    </div>
+  </div>
+</div>

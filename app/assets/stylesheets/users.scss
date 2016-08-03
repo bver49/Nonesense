@@ -6,6 +6,7 @@
   margin-bottom:25px;
   width:100%;
 }
+
 .user-avatar{
   width:150px;
   border-radius:50%;
@@ -13,12 +14,14 @@
   margin:0 auto;
   margin-bottom:10px;
 }
+
 .user-about{
   width:60%;
   margin:20px auto;
   line-height:30px;
   display: block;
   text-align: center;
+  overflow-wrap: break-word;
 }
 
 .usercard{
@@ -83,7 +86,7 @@
 }
 
 .user-category-img{
-  width:40%;
+  width:35%;
   margin:10px auto;
   display: block;
 }

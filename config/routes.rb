@@ -25,15 +25,16 @@ Rails.application.routes.draw do
     get "login" => "users#login", :as => "login"
     post "create_login_session" => "users#create_login_session"
     delete "logout" => "users#logout", :as => "logout"
+    post 'draw' => 'users#draw'
 
     #Follow user
-    post ':id/follow_user', to: 'relationships#follow_user', :as => 'follow_user'
-    post ':id/unfollow_user', to: 'relationships#unfollow_user',:as => 'unfollow_user'
+    post ':id/follow_user' => 'relationships#follow_user', :as => 'follow_user'
+    post ':id/unfollow_user' => 'relationships#unfollow_user',:as => 'unfollow_user'
     get 'following/:id' => 'users#following', :as => 'following'
 
     #Like post
-    post ':id/like_post', to: 'likes#likepost', :as => 'likepost'
-    post ':id/unlike_post', to: 'likes#unlikepost',:as => 'unlikepost'
+    post ':id/like_post' => 'likes#likepost', :as => 'likepost'
+    post ':id/unlike_post' => 'likes#unlikepost',:as => 'unlikepost'
 
     #Notify
     post 'clearnotify/:id' => 'messages#clearnotify'
@@ -44,4 +45,7 @@ Rails.application.routes.draw do
     get 'adminpost' => 'users#adminpost'
     post ':id/upgradeuser' => 'users#upgradeuser',:as => 'upgradeuser'
     delete "admindestroy/:id" => "users#admindestroy" ,:as => 'admindestroy'
+
+    #draw msg
+    resources :draws,only: [:create]
 end
