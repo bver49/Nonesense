@@ -133,7 +133,7 @@ class UsersController < ApplicationController
       @user.each do |u|
         @sql2=@sql2+"user_id = " + u.id.to_s
         if(u.id != @user.last.id)
-          @sql2+="OR"
+          @sql2+=" OR "
         end
       end
       @post=Post.where(@sql2).order("RANDOM()").limit(3)
