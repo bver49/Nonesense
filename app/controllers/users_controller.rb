@@ -128,11 +128,15 @@ class UsersController < ApplicationController
       end
       @sql+=" )"
       @user=User.where(@sql,current_user.id)
-      @id=[]
+
+      @sql2=""
       @user.each do |u|
-        @id.push(u.id)
+        @sql2=@sql2+"user_id = " + u.id.to_s
+        if(u.id != @user.last.id)
+          @sql2+="OR"
+        end
       end
-      @post=Post.where('user_id = ?',@id).order("RANDOM()").limit(3)
+      @post=Post.where(@sql2).order("RANDOM()").limit(3)
       respond_to do |format|
         format.html  { render layout: false }
       end
