@@ -2,15 +2,15 @@
   <ul class="sidemenu">
     <li class="biglink"><%= link_to '動態實況',posts_path %></li>
     <hr>
-    <li class="biglink"><%= link_to '找設計師',users_path %></li>
+    <li class="biglink"><%= link_to '找創作者',users_path %></li>
     <hr>
     <% if @category==1 %>
-      <li class="slink category"><%= link_to '工藝',users_path(:c =>'A') %></li>
+      <li class="slink category"><%= link_to '工業設計',users_path(:c =>'A') %></li>
       <li class="slink category"><%= link_to '攝影',users_path(:c =>'B') %></li>
-      <li class="slink category"><%= link_to '插畫',users_path(:c =>'C') %></li>
-      <li class="slink category"><%= link_to '油畫水彩',users_path(:c =>'D') %></li>
-      <li class="slink category"><%= link_to '服裝',users_path(:c =>'E') %></li>
-      <li class="slink category"><%= link_to '介面UI',users_path(:c =>'F') %></li>
+      <li class="slink category"><%= link_to '圖文創作',users_path(:c =>'C') %></li>
+      <li class="slink category"><%= link_to '藝術',users_path(:c =>'D') %></li>
+      <li class="slink category"><%= link_to '服裝設計',users_path(:c =>'E') %></li>
+      <li class="slink category"><%= link_to 'UI平面設計',users_path(:c =>'F') %></li>
       <li class="slink category"><%= link_to '動畫電繪',users_path(:c =>'G') %></li>
       <hr>
     <% end %>
