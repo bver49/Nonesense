@@ -7,10 +7,19 @@ class DrawsController < ApplicationController
     if @draw.save
       @msg = Draw.includes(:user).where('user_id = ? AND receiver_id = ? AND status =  0',@draw.receiver_id,current_user.id)
       if(@msg.length>0)
+
         @msg.first.status=1
         @msg.first.save
+
+        @draw.status=1
+        @draw.save
+
         @notice=Message.new
-        @notice.notify_draw(@msg.first.user,current_user)
+        @notice.notify_draw(@msg.first,current_user)
+
+        @notice2=Message.new
+        @notice2.notify_draw(@draw,@msg.first.user)
+
         respond_to do |format|
           format.js { render :action => "has_msg" }
         end

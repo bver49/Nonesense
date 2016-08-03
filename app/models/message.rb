@@ -33,12 +33,12 @@ class Message < ActiveRecord::Base
       self.save
     end
 
-    def notify_draw(user,current_user)
+    def notify_draw(msg,user)
       self.types = 4
-      self.sender_id = user.id
+      self.sender_id = msg.user.id
       self.title = "通知"
-      self.body ="恭喜你和 #{user.name} 配對成功"
-      self.receiver_id = current_user.id
+      self.body ="恭喜你和 #{msg.user.name} 配對成功 ,<br>他想對你說 #{msg.content}"
+      self.receiver_id = user.id
       self.save
     end
 end
