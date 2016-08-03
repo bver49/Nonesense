@@ -1,4 +1,7 @@
-$('#drawmodal #stepthree').css('display','none').empty();
+$('#drawmodal #stepone').remove();
+$('#drawmodal #steptwo').remove();
+$('#drawmodal #stepthree').remove();
 toastr.success("配對成功");
 var dom ="<div style='width:100%;text-align:center;'><img src='<%= @msg.first.user.avatar.url(:avatar) %>' style='width:150px;display:block;margin:20px auto;'><a href='users/<%= @msg.first.user.id %>'><%= @msg.first.user.name %></a> 對你說 <%= @msg.first.content %></div>";
 $('#drawmodal #stepfour').css('display','block').append(dom);
+$('#drawmodal #stepfour').removeAttr('id');

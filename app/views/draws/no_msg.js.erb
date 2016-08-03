@@ -1,3 +1,5 @@
-$('#drawmodal #stepthree').css('display','none').empty();
 $("#drawmodal #close").click();
+$('#drawmodal .modal-content').empty();
+var dom ='<div class="modal-body text-center" style="padding:20px 50px;"><p style="line-height:28px;">嗨，這個功能一天只能用一次喔，明天再來吧!</p><br><br><div class="text-center"><div class="ui small black basic button" data-dismiss="modal">退出</div></div></div>';
+$('#drawmodal .modal-content').append(dom);
 toastr.success("傳送成功");
