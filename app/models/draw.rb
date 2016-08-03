@@ -1,4 +1,4 @@
 class Draw < ActiveRecord::Base
 	belongs_to :user
-  validates_presence_of :content
+  belongs_to :post
 end

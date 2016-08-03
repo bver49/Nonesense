@@ -129,14 +129,17 @@ class UsersController < ApplicationController
       @sql+=" )"
       @user=User.where(@sql,current_user.id)
 
-      @sql2=""
+      @userid=[]
       @user.each do |u|
-        @sql2=@sql2+"user_id = " + u.id.to_s
-        if(u.id != @user.last.id)
-          @sql2+=" OR "
-        end
+        @userid.push(u.id)
       end
-      @post=Post.where(@sql2).order("RAND()").limit(3)
+      @post=Post.where("user_id IN (?)",@userid).order("RAND()").limit(3)
+      @post.each do |post|
+        @draw = Draw.new
+        @draw.user_id=current_user.id
+        @draw.post_id=post.id
+        @draw.save
+      end
       respond_to do |format|
         format.html  { render layout: false }
       end

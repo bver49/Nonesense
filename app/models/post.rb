@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
 	has_many :likes, dependent: :destroy
 	has_many :taggings, dependent: :destroy
 	has_many :tags,through: :taggings
-
+  has_many :draws, dependent: :destroy
 	mount_uploader :image, ImageUploader
 
 	validates_presence_of :title , :message => "請填寫標題"

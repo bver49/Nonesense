@@ -11,6 +11,33 @@
     </div>
   </div>
 </div>
+<% elsif check_today_draw == 0 && today_draw.length>0 %>
+<div class="modal fade" id="drawmodal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body" id="stepthree" style="height:600px;">
+        <div style="width:100%;display:block;margin-top:50px;" class="text-center">
+          <h1 class="text-center">今天抽到的作品</h1><br>
+          <% today_draw.each do |post| %>
+            <div class="col-md-4 text-center">
+              <%= image_tag post.image.url(:post) ,:style =>"width:80%;margin-bottom:20px;" %>
+              <%= form_for Drawmsg.new, :html => {:class => "ui form"}, remote: true do |f| %>
+                <div class="field">
+                  <%= f.text_field :content,:placeholder => "想說的一句話" %>
+                </div>
+                <input type='hidden' value='<%= post.user_id %>' name='draw[receiver_id]' />
+                <div class="field">
+                  <%= f.submit '傳送', :class =>"tiny ui black basic button", data: {confirm: "確定送出?" } %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+    <div class="modal-body" id="stepfour" style="display:none;height:300px;"></div>
+    </div>
+  </div>
+</div>
 <% else %>
 <div class="modal fade" id="drawmodal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
@@ -77,24 +104,22 @@
 
     /* clear draw model when user close */
     $('#drawmodal').on('hidden.bs.modal', function () {
-      $('#drawmodal #stepone').css('display', 'none');
-      $('#drawmodal #steptwo').css('display', 'block');
-      $('#drawmodal #stepthree').css('display', 'none').empty();
-      $('#drawmodal #stepfour').css('display', 'none').empty();
+      $('#drawmodal #stepone').css('display', 'block');
+      $('#drawmodal #steptwo').css('display', 'none');
     });
 
     $('#drawmodal #join').on('click', function () {
-      $('#drawmodal #stepone').css('display', 'none');
-      $('#drawmodal #steptwo').css('display', 'block');
+      $('#drawmodal #stepone').remove();
+      $('#drawmodal #steptwo').css('display','block').removeAttr('id').attr('id', 'steptwochoose');;
     });
 
     $('#drawmodal #submit').on('click', function () {
       var check = ["A","B","C","D","E","F","G"];
       var params = "";
       for (var i in check) {
-        if ($("#steptwo input[name='" + check[i] + "']").prop("checked")) {
+        if ($("#steptwochoose input[name='" + check[i] + "']").prop("checked")) {
           params += check[i];
-          $("#steptwo input[name='" + check[i] + "']").click();
+          $("#steptwochoose input[name='" + check[i] + "']").click();
         }
       }
       var ajaxurl = '/draw?c=' + params;
@@ -102,7 +127,7 @@
         url: ajaxurl,
         type: 'POST',
         success: function (response) {
-          $('#drawmodal #steptwo').css('display', 'none');
+          $('#drawmodal #steptwochoose').remove();
           $('#drawmodal #stepthree').css('display', 'block').append(response);
         }
       });

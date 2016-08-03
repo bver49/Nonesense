@@ -1,9 +1,10 @@
 <div style="width:100%;display:block;margin-top:50px;" class="text-center">
-  <% if @post.length > 0 %>
-    <% @post.each do |post| %>
+  <h1 class="text-center">今天抽到的作品</h1><br>
+  <% if today_draw.length > 0 %>
+    <% today_draw.each do |post| %>
       <div class="col-md-4 text-center">
         <%= image_tag post.image.url(:post) ,:style =>"width:80%;margin-bottom:20px;" %>
-        <%= form_for Draw.new, :html => {:class => "ui form"}, remote: true do |f| %>
+        <%= form_for Drawmsg.new, :html => {:class => "ui form"}, remote: true do |f| %>
           <div class="field">
             <%= f.text_field :content,:placeholder => "想說的一句話" %>
           </div>

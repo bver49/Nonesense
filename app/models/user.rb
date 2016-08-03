@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
     has_many :likes, dependent: :destroy
     has_many :folders, dependent: :destroy
     has_many :draws, dependent: :destroy
+    has_many :drawmsgs, dependent: :destroy
 
     has_many :follower_relationships, foreign_key: :following_id, class_name: 'Relationship'
     has_many :followers, through: :follower_relationships, source: :follower

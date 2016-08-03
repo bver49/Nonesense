@@ -47,5 +47,5 @@ Rails.application.routes.draw do
     delete "admindestroy/:id" => "users#admindestroy" ,:as => 'admindestroy'
 
     #draw msg
-    resources :draws,only: [:create]
+    resources :drawmsgs,only: [:create]
 end
