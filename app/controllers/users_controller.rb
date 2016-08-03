@@ -136,7 +136,7 @@ class UsersController < ApplicationController
           @sql2+=" OR "
         end
       end
-      @post=Post.where(@sql2).order("RANDOM()").limit(3)
+      @post=Post.where(@sql2).order("RAND()").limit(3)
       respond_to do |format|
         format.html  { render layout: false }
       end
