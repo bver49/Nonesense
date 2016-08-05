@@ -1,6 +1,6 @@
 <div style="width:100%;display:block;margin-top:50px;" class="text-center">
-  <h1 class="text-center">今天抽到的作品</h1><br>
   <% if today_draw.length > 0 %>
+    <h1 class="text-center">今天抽到的作品</h1><br>
     <% today_draw.each do |post| %>
       <div class="col-md-4 text-center">
         <%= image_tag post.image.url(:post) ,:style =>"width:80%;margin-bottom:20px;" %>
@@ -8,7 +8,7 @@
           <div class="field">
             <%= f.text_field :content,:placeholder => "想說的一句話" %>
           </div>
-          <input type='hidden' value='<%= post.user_id %>' name='draw[receiver_id]' />
+          <input type='hidden' value='<%= post.user_id %>' name='drawmsg[receiver_id]' />
           <div class="field">
             <%= f.submit '傳送', :class =>"tiny ui black basic button", data: {confirm: "確定送出?" } %>
           </div>
