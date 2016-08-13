@@ -5,7 +5,7 @@
     <tr id="msg-<%= n.id %>">
       <td>
         <% if n.types == 1 || n.types == 3 %>
-          <%= link_to n.body , post_path(n.user_id) %>
+          <%= link_to n.body , post_path(n.post_id) %>
         <% else %>
           <%= link_to n.body , user_path(n.user_id) %>
         <% end %>

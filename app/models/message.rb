@@ -5,7 +5,7 @@ class Message < ActiveRecord::Base
 
     def notify_post(user,post)
       self.types = 1
-      self.user_id = post.id
+      self.post_id = post.id
       self.title = "通知"
       self.body ="#{user} 按了你的文章 #{post.title} 讚"
       self.receiver_id = post.user_id
@@ -23,7 +23,7 @@ class Message < ActiveRecord::Base
 
     def notify_comment(user,post)
       self.types = 3
-      self.user_id = post.id
+      self.post_id = post.id
       self.title = "通知"
       self.body ="#{user} 在你的文章 #{post.title} 留言"
       self.receiver_id = post.user_id
