@@ -17,10 +17,10 @@
           <% end %>
           <%= link_to msg.title,msg %>
         </td>
-        <td><%= link_to msg.sender.name , msg.sender  %></td>
+        <td><%= link_to msg.user.name , msg.user  %></td>
         <td>
           <%= link_to '刪除', message_path(msg) ,:class => "tiny ui black basic button", method: :delete, data: {confirm: "確定刪除?" },remote: true %>
-          <%= link_to '回信',new_message_path(:r => msg.sender_id),:class => "tiny ui black basic button" %>
+          <%= link_to '回信',new_message_path(:r => msg.user_id),:class => "tiny ui black basic button" %>
         </td>
       </tr>
       <% end %>

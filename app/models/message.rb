@@ -3,10 +3,6 @@ class Message < ActiveRecord::Base
     validates_presence_of :body
     belongs_to :user
 
-    def sender
-      User.find(sender_id)
-    end
-
     def notify_post(user,post)
       self.types = 1
       self.user_id = post.id
