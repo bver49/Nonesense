@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
 
   def create
     @msg= Message.new(msg_params)
-    @msg.sender_id = current_user.id
+    @msg.user_id = current_user.id
     @msg.save
     respond_to do |format|
       format.js

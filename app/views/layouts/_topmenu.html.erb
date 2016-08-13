@@ -20,9 +20,9 @@
           <div id="notificationsBody">
             <% mynotice.each do |n|  %>
               <% if n.types == 1 || n.types == 3 %>
-                <div class ='notifications notifypost-show' data-toggle="modal" data-target="#notifypostmodal" data-id="<%= n.sender_id %>"><%=  n.body %></div>
+                <div class ='notifications notifypost-show' data-toggle="modal" data-target="#notifypostmodal" data-id="<%= n.user_id %>"><%=  n.body %></div>
               <% else %>
-                <%= link_to n.body.html_safe , user_path(n.sender_id),:class => 'notifications' %>
+                <%= link_to n.body.html_safe , user_path(n.user_id),:class => 'notifications' %>
               <% end %>
             <% end %>
           </div>
